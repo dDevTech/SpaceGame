@@ -1,0 +1,24 @@
+apply plugin: 'application'
+
+sourceCompatibility = 8.0
+mainClassName = 'dDev.tech.server.ServerLauncher'
+eclipse.project.name = appName + '-server'
+
+dependencies {
+	implementation "com.github.MrStahlfelge.gdx-websockets:serialization:$websocketSerializationVersion"
+	implementation "org.java-websocket:Java-WebSocket:1.5.1"
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
+	implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+	api "com.badlogicgames.gdx:gdx:$gdxVersion"
+	api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+	implementation project(':shared')
+}
+
+jar {
+	archiveBaseName = "${appName}-server"
+	dependsOn configurations.runtimeClasspath
+	from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } } 
+	manifest {
+		attributes 'Main-Class': project.mainClassName
+	}
+}

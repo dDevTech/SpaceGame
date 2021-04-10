@@ -7,7 +7,8 @@ import com.github.czyzby.websocket.WebSockets;
 import dDev.tech.SpaceGame;
 
 /** Launches the desktop (LWJGL3) application. */
-public class Lwjgl3Launcher {
+public class
+Lwjgl3Launcher {
 	public static void main(String[] args) {
 		createApplication();
 	}
@@ -20,8 +21,9 @@ public class Lwjgl3Launcher {
 		CommonWebSockets.initiate();
 		Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
 		configuration.setTitle("SpaceGame");
-		configuration.setWindowedMode(640, 480);
+		configuration.setWindowedMode(800, 450);
 		configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
+		configuration.setBackBufferConfig(8, 8, 8, 8, 16, 0, 4);
 		return configuration;
 	}
 }

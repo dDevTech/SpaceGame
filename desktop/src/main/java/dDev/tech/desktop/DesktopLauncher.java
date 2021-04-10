@@ -20,8 +20,8 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration configuration = new LwjglApplicationConfiguration();
 		CommonWebSockets.initiate();
 		configuration.title = "SpaceGame";
-		configuration.width = 640;
-		configuration.height = 480;
+		configuration.width = 800;
+		configuration.height = 450;
 		configuration.samples =4;
 
 		return configuration;

@@ -27,6 +27,7 @@ import java.util.Properties;
 public class ServerLauncher {
 	public static void main(String[] args) {
 		// TODO Implement server application.
+
 		/*Connection conn =null;
 		Properties connectionProps = new Properties();
 		connectionProps.put("user", "root");

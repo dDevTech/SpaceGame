@@ -6,6 +6,8 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.github.czyzby.websocket.CommonWebSockets;
 import dDev.tech.SpaceGame;
 
+import javax.security.auth.login.Configuration;
+
 /** Launches the desktop (LWJGL) application. */
 public class DesktopLauncher {
 	public static void main(String[] args) {
@@ -23,6 +25,9 @@ public class DesktopLauncher {
 		configuration.width = 800;
 		configuration.height = 450;
 		configuration.samples =4;
+		configuration.foregroundFPS=0;
+		configuration.backgroundFPS=0;
+		configuration.vSyncEnabled=false;
 
 		return configuration;
 	}

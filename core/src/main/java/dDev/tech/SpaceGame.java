@@ -71,6 +71,8 @@ public class SpaceGame extends ApplicationAdapter {
 
             }
         };
+        cam.position.x=0;
+        cam.position.y=0;
         Gdx.input.setInputProcessor(inputs);
 
     }
@@ -100,7 +102,8 @@ public class SpaceGame extends ApplicationAdapter {
     @Override
     public void dispose() {
         game.dispose();
-
+        texture.dispose();
+        font.dispose();
 
     }
 }

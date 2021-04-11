@@ -17,7 +17,7 @@ public class Map extends Actor implements Disposable {
     private Pixmap mapImage;
     private Tile[][]map;
     private Shaper shaper;
-    private int tileSize =20;
+    private int tileSize =50;
     private float perspectiveInclination=0.25f;
     private OrthographicCamera camera;
     public Map(String imagePath,OrthographicCamera camera){
@@ -49,8 +49,8 @@ public class Map extends Actor implements Disposable {
         //Calculate matrix array coordinates in camera bounds
         float xCorner=(camera.position.x-camera.viewportWidth/2)/tileSize;
         float yCorner=(camera.position.y-camera.viewportHeight/2)/tileSize;
-        float xFinal=1+xCorner+camera.viewportWidth/tileSize;
-        float yFinal=1+yCorner+camera.viewportHeight/tileSize;
+        float xFinal=2+xCorner+camera.viewportWidth/tileSize;
+        float yFinal=2+yCorner+camera.viewportHeight/tileSize;
 
         shaper.getShaper().setColor(Color.BLACK);
         shaper.getShaper().filledRectangle(camera.position.x-camera.viewportWidth/2,camera.position.y-camera.viewportHeight/2, camera.viewportWidth, camera.viewportHeight);
@@ -85,7 +85,7 @@ public class Map extends Actor implements Disposable {
                 shaper.getShaper().filledRectangle(x*tileSize,y*tileSize,tileSize,tileSize);
 
                 //draw lines
-                c = Color.WHITE;
+                c = new Color(Color.WHITE);
                 c.a=0.6f;
                 shaper.getShaper().setColor(c);
 

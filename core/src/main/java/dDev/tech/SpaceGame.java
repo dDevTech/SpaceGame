@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.github.czyzby.websocket.AbstractWebSocketListener;
 import com.github.czyzby.websocket.WebSocket;
 import com.github.czyzby.websocket.WebSockets;
@@ -25,12 +26,14 @@ import dDev.tech.inputs.InputHandler;
 import dDev.tech.map.Map;
 import dDev.tech.serialized.SpaceLoader;
 import dDev.tech.tools.Shaper;
+import dDev.tech.ui.TextFont;
 import sun.jvm.hotspot.gc.shared.Space;
 
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class SpaceGame extends ApplicationAdapter {
     private Stage game;
+    private Stage UIText;
     private Map map;
     private SpaceCamera cam;
     private SpriteBatch batch;
@@ -40,6 +43,7 @@ public class SpaceGame extends ApplicationAdapter {
     private InputHandler inputs;
     private BitmapFont font;
     private float speed=150f;
+    TextFont fps;
     public SpaceGame(){
 
     }
@@ -52,13 +56,26 @@ public class SpaceGame extends ApplicationAdapter {
         FitViewport viewport=new FitViewport(800,450,cam);
         game= new Stage(viewport);
 
+
+
         font = new BitmapFont();
+        fps=new TextFont(font,"FPS",0.5f,0.5f);
+
+        UIText = new Stage();
+        UIText.setViewport(new ScreenViewport());
+        fps.setPosition(-Gdx.graphics.getWidth()/4f,-Gdx.graphics.getHeight()/4f);
+        fps.setScale(2f);
+
+        UIText.addActor(fps);
+
+
         map = new Map("Map2.png",cam);
         game.addActor(map);
 
         player= new Player();
         player.setX(150);
         player.setY(150);
+        player.setMainPlayer(cam);
         game.addActor(player);
 
         batch = new SpriteBatch();
@@ -84,16 +101,21 @@ public class SpaceGame extends ApplicationAdapter {
         if(inputs.isUp()&& !inputs.isDown()) cam.position.y+=speed*Gdx.graphics.getDeltaTime();
         if(inputs.isRight()&& !inputs.isLeft()) cam.position.x+=speed*Gdx.graphics.getDeltaTime();
         if(inputs.isLeft()&& !inputs.isRight()) cam.position.x-=speed*Gdx.graphics.getDeltaTime();
+        game.getViewport().apply();
         game.draw();
 
-        batch.begin();
-        font.setColor(Color.WHITE);
-        font.draw(batch,"FPS: "+Gdx.graphics.getFramesPerSecond(),50,50);
-        batch.end();
+
+        fps.updateText("FPS: "+Gdx.graphics.getFramesPerSecond());
+
+        UIText.getViewport().apply();
+        UIText.draw();
     }
     @Override
     public void resize(int width, int height) {
         game.getViewport().update(width, height);
+        UIText.getViewport().update(width, height);
+        UIText.act();
+
 
     }
 

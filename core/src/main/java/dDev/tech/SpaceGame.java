@@ -24,6 +24,7 @@ import dDev.tech.entities.Player;
 import dDev.tech.entities.SpaceCamera;
 import dDev.tech.inputs.InputHandler;
 import dDev.tech.map.Map;
+import dDev.tech.net.ServerConnection;
 import dDev.tech.serialized.SpaceLoader;
 import dDev.tech.tools.Shaper;
 import dDev.tech.ui.TextFont;
@@ -44,12 +45,14 @@ public class SpaceGame extends ApplicationAdapter {
     private BitmapFont font;
     private float speed=150f;
     TextFont fps;
+    ServerConnection connection;
     public SpaceGame(){
 
     }
 
     @Override
     public void create() {
+        connection = new ServerConnection();
 
         texture=  new Texture(Gdx.files.internal("Map2.png"));
         cam = new SpaceCamera();
@@ -59,7 +62,7 @@ public class SpaceGame extends ApplicationAdapter {
 
 
         font = new BitmapFont();
-        fps=new TextFont(font,"FPS",0.5f,0.5f);
+        fps=new TextFont(font,"FPS",0.05f,0.05f);
 
         UIText = new Stage();
         UIText.setViewport(new ScreenViewport());
@@ -112,7 +115,9 @@ public class SpaceGame extends ApplicationAdapter {
     }
     @Override
     public void resize(int width, int height) {
+
         game.getViewport().update(width, height);
+
         UIText.getViewport().update(width, height);
         UIText.act();
 

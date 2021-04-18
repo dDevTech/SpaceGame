@@ -18,7 +18,7 @@ public class Map extends Actor implements Disposable {
     private Tile[][]map;
     private Shaper shaper;
     private int tileSize =50;
-    private float perspectiveInclination=0.25f;
+    private float perspectiveInclination=0.2f;
     private OrthographicCamera camera;
     public Map(String imagePath,OrthographicCamera camera){
         super();
@@ -86,7 +86,7 @@ public class Map extends Actor implements Disposable {
 
                 //draw lines
                 c = new Color(Color.WHITE);
-                c.a=0.6f;
+                c.a=0.3f;
                 shaper.getShaper().setColor(c);
 
                 for(Vector2[]vertices:map[y][x].getLines()){

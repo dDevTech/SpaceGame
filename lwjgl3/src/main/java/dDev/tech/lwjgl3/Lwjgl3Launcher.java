@@ -14,11 +14,12 @@ Lwjgl3Launcher {
 	}
 
 	private static Lwjgl3Application createApplication() {
+		CommonWebSockets.initiate();
 		return new Lwjgl3Application(new SpaceGame(), getDefaultConfiguration());
 	}
 
 	private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
-		CommonWebSockets.initiate();
+
 		Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
 		configuration.setTitle("SpaceGame");
 		configuration.setWindowedMode(800, 450);

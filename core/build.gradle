@@ -13,5 +13,6 @@ dependencies {
 	api "com.crashinvaders.vfx:gdx-vfx-core:$gdxVfxCoreVersion"
 	api "com.crashinvaders.vfx:gdx-vfx-effects:$gdxVfxEffectsVersion"
 	api "com.badlogicgames.gdxpay:gdx-pay-client:$gdxPayVersion"
+	api "com.playfab:client-sdk:$playfabClient"
 	api project(':shared')
 }

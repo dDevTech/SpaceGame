@@ -20,34 +20,22 @@ import java.nio.ByteBuffer;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.Properties;
+import java.util.*;
 
 /** Launches the server application. */
 public class ServerLauncher {
+	public static Map<WebSocket, Player> players;
 	public static void main(String[] args) {
-		// TODO Implement server application.
 
-		/*Connection conn =null;
-		Properties connectionProps = new Properties();
-		connectionProps.put("user", "root");
-		connectionProps.put("password", "dieguin01");
-		try {
-			conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/spacegame",connectionProps.getProperty("user"),connectionProps.getProperty("password"));
-
-
-		} catch (SQLException throwables) {
-			throwables.printStackTrace();
-		}
-		if(conn!=null){
-			System.out.println("Connected to database");
-		}*/
-		System.out.println("Server running");
+		players = Collections.synchronizedMap(new HashMap<>());
+		Game game = new Game();
+		game.start();
+		System.out.println("Server starting");
 		WebSocketServer server = new WebSocketServer(new InetSocketAddress("localhost",25001)) {
 
 			@Override
 			public ServerHandshakeBuilder onWebsocketHandshakeReceivedAsServer(WebSocket conn, Draft draft, ClientHandshake request) throws InvalidDataException {
-				System.out.println("Status: "+conn.getReadyState());
+				System.out.println("New attempting connection");
 				ServerHandshakeBuilder builder = super
 						.onWebsocketHandshakeReceivedAsServer(conn, draft, request);
 				return builder;
@@ -58,12 +46,9 @@ public class ServerLauncher {
 			public void onOpen(WebSocket conn, ClientHandshake handshake) {
 				System.out.println("Openned connection");
 
-				System.out.println(handshake.getResourceDescriptor());
-				for (Iterator<String> it = handshake.iterateHttpFields(); it.hasNext(); ) {
-					String s = it.next();
-					System.out.println(s+"-> "+handshake.getFieldValue(s));
-
-				}
+				Player player = new Player(conn,game.world);
+				players.put(conn,player);
+				System.out.println(players);
 
 			}
 
@@ -74,7 +59,10 @@ public class ServerLauncher {
 
 			@Override
 			public void onMessage(WebSocket conn, String message) {
-				System.out.println("new messsage");
+				if(players.containsKey(conn)){
+					Player player =players.get(conn);
+					player.showMessage(message);
+				}
 			}
 
 			@Override
@@ -117,6 +105,6 @@ public class ServerLauncher {
 		};
 
 		server.run();
-
+		System.out.println("Server started");
 	}
 }

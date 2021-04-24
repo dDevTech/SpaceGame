@@ -1,12 +1,9 @@
 package dDev.tech.desktop;
 
-import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.github.czyzby.websocket.CommonWebSockets;
-import dDev.tech.SpaceGame;
-
-import javax.security.auth.login.Configuration;
+import dDev.tech.screens.SpaceGame;
 
 /** Launches the desktop (LWJGL) application. */
 public class DesktopLauncher {

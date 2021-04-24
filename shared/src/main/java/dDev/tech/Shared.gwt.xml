@@ -3,4 +3,6 @@
 <module>
 	<source path="" />
 	<extend-configuration-property name="gdx.reflect.include" value="serialized" />
+	<extend-configuration-property name="gdx.reflect.include" value="entities" />
+	<extend-configuration-property name="gdx.reflect.include" value="tools" />
 </module>

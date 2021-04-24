@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.github.czyzby.websocket.CommonWebSockets;
-import dDev.tech.SpaceGame;
+import dDev.tech.screens.SpaceGame;
 
 /** Launches the Android application. */
 public class AndroidLauncher extends AndroidApplication {

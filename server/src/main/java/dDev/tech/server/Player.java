@@ -1,9 +1,8 @@
 package dDev.tech.server;
 
 
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.*;
 import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
 import com.playfab.PlayFabServerAPI;
 import org.java_websocket.WebSocket;
@@ -13,6 +12,7 @@ public class Player {
     private JsonSerializer serialiazer;
     BodyDef bodyDef = new BodyDef();
     Body body;
+    CircleShape shape = new CircleShape();
     public Player(WebSocket socket,World world){
         this.socket = socket;
         serialiazer = new JsonSerializer();

@@ -3,8 +3,7 @@ package dDev.tech.lwjgl3;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.github.czyzby.websocket.CommonWebSockets;
-import com.github.czyzby.websocket.WebSockets;
-import dDev.tech.SpaceGame;
+import dDev.tech.screens.SpaceGame;
 
 /** Launches the desktop (LWJGL3) application. */
 public class

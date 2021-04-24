@@ -17,7 +17,7 @@ public class Map extends Actor implements Disposable {
     private Pixmap mapImage;
     private Tile[][]map;
     private Shaper shaper;
-    private int tileSize =50;
+
     private float perspectiveInclination=0.2f;
     private OrthographicCamera camera;
     public Map(String imagePath,OrthographicCamera camera){
@@ -32,7 +32,7 @@ public class Map extends Actor implements Disposable {
                 Color c=new Color(mapImage.getPixel(i,j));
                 Tile.TILE_TYPE type= Tile.TILE_TYPE.BLOCK;
                 if(c.toIntBits()==Color.WHITE.toIntBits())type= Tile.TILE_TYPE.NONE;
-                Tile tile = new Tile(j*tileSize,i*tileSize,tileSize,c, type);
+                Tile tile = new Tile(j*SettingsGame.tileSize,i*SettingsGame.tileSize,SettingsGame.tileSize,c, type);
                 map[i][j]= tile;
             }
         }
@@ -47,10 +47,10 @@ public class Map extends Actor implements Disposable {
         if(shaper==null)shaper= new Shaper(batch);
 
         //Calculate matrix array coordinates in camera bounds
-        float xCorner=(camera.position.x-camera.viewportWidth/2)/tileSize;
-        float yCorner=(camera.position.y-camera.viewportHeight/2)/tileSize;
-        float xFinal=2+xCorner+camera.viewportWidth/tileSize;
-        float yFinal=2+yCorner+camera.viewportHeight/tileSize;
+        float xCorner=(camera.position.x-camera.viewportWidth/2)/SettingsGame.tileSize;
+        float yCorner=(camera.position.y-camera.viewportHeight/2)/SettingsGame.tileSize;
+        float xFinal=2+xCorner+camera.viewportWidth/SettingsGame.tileSize;
+        float yFinal=2+yCorner+camera.viewportHeight/SettingsGame.tileSize;
 
         shaper.getShaper().setColor(Color.BLACK);
         shaper.getShaper().filledRectangle(camera.position.x-camera.viewportWidth/2,camera.position.y-camera.viewportHeight/2, camera.viewportWidth, camera.viewportHeight);
@@ -82,7 +82,7 @@ public class Map extends Actor implements Disposable {
                 if(map[y][x].getType()== Tile.TILE_TYPE.NONE)continue;
                 Color c =map[y][x].getColor();
                 shaper.getShaper().setColor(c);
-                shaper.getShaper().filledRectangle(x*tileSize,y*tileSize,tileSize,tileSize);
+                shaper.getShaper().filledRectangle(x*SettingsGame.tileSize,y*SettingsGame.tileSize,SettingsGame.tileSize,SettingsGame.tileSize);
 
                 //draw lines
                 c = new Color(Color.WHITE);
@@ -120,38 +120,38 @@ public class Map extends Actor implements Disposable {
     }
     private void create3dBox(int y,int x,boolean  drawRight,boolean drawBottom){
 
-        int tileX = (x)*tileSize;
-        int tileY = (y)*tileSize;
-        int nextTileX = (x+1)*tileSize;
-        int nextTileY = (y+1)*tileSize;
+        int tileX = (x)*SettingsGame.tileSize;
+        int tileY = (y)*SettingsGame.tileSize;
+        int nextTileX = (x+1)*SettingsGame.tileSize;
+        int nextTileY = (y+1)*SettingsGame.tileSize;
         if(drawRight) {
-            map[y][x].addTriangle(new Vector2(nextTileX, tileY),new Vector2(nextTileX + perspectiveInclination * tileSize , nextTileY - perspectiveInclination * tileSize), new Vector2(nextTileX + perspectiveInclination * tileSize, tileY - perspectiveInclination * tileSize));
+            map[y][x].addTriangle(new Vector2(nextTileX, tileY),new Vector2(nextTileX + perspectiveInclination * SettingsGame.tileSize , nextTileY - perspectiveInclination * SettingsGame.tileSize), new Vector2(nextTileX + perspectiveInclination * SettingsGame.tileSize, tileY - perspectiveInclination * SettingsGame.tileSize));
             map[y][x].addTriangle(new Vector2(nextTileX, tileY),
                     new Vector2(nextTileX, nextTileY),
-                    new Vector2(nextTileX + perspectiveInclination * tileSize, nextTileY - perspectiveInclination * tileSize));
+                    new Vector2(nextTileX + perspectiveInclination * SettingsGame.tileSize, nextTileY - perspectiveInclination * SettingsGame.tileSize));
         }
 
         if(drawBottom) {
-            map[y][x].addTriangle(new Vector2(nextTileX + perspectiveInclination * tileSize, tileY - perspectiveInclination * tileSize),
+            map[y][x].addTriangle(new Vector2(nextTileX + perspectiveInclination * SettingsGame.tileSize, tileY - perspectiveInclination * SettingsGame.tileSize),
                     new Vector2(nextTileX, tileY),
-                    new Vector2(tileX + perspectiveInclination * tileSize, tileY - perspectiveInclination * tileSize));
+                    new Vector2(tileX + perspectiveInclination * SettingsGame.tileSize, tileY - perspectiveInclination * SettingsGame.tileSize));
             map[y][x].addTriangle(new Vector2(tileX, tileY),
                     new Vector2(nextTileX, tileY),
-                    new Vector2(tileX + perspectiveInclination * tileSize, tileY - perspectiveInclination * tileSize));
+                    new Vector2(tileX + perspectiveInclination * SettingsGame.tileSize, tileY - perspectiveInclination * SettingsGame.tileSize));
         }
 
         if( y-1>=0 && map[y-1][x].getType()== Tile.TILE_TYPE.NONE){
-            map[y][x].addLine(new Vector2(x*tileSize,y*tileSize),new Vector2((x+1)*tileSize,y*tileSize));
+            map[y][x].addLine(new Vector2(x*SettingsGame.tileSize,y*SettingsGame.tileSize),new Vector2((x+1)*SettingsGame.tileSize,y*SettingsGame.tileSize));
         }
         if( y+1<map.length && map[y+1][x].getType()== Tile.TILE_TYPE.NONE){
-            map[y][x].addLine(new Vector2(x*tileSize,(y+1)*tileSize),new Vector2((x+1)*tileSize,(y+1)*tileSize));
+            map[y][x].addLine(new Vector2(x*SettingsGame.tileSize,(y+1)*SettingsGame.tileSize),new Vector2((x+1)*SettingsGame.tileSize,(y+1)*SettingsGame.tileSize));
         }
 
         if( x+1<map[0].length && map[y][x+1].getType()== Tile.TILE_TYPE.NONE){
-            map[y][x].addLine(new Vector2((x+1)*tileSize,(y)*tileSize),new Vector2((x+1)*tileSize,(y+1)*tileSize));
+            map[y][x].addLine(new Vector2((x+1)*SettingsGame.tileSize,(y)*SettingsGame.tileSize),new Vector2((x+1)*SettingsGame.tileSize,(y+1)*SettingsGame.tileSize));
         }
         if( x-1>=0 && map[y][x-1].getType()== Tile.TILE_TYPE.NONE){
-            map[y][x].addLine(new Vector2(x*tileSize,(y)*tileSize),new Vector2(x*tileSize,(y+1)*tileSize));
+            map[y][x].addLine(new Vector2(x*SettingsGame.tileSize,(y)*SettingsGame.tileSize),new Vector2(x*SettingsGame.tileSize,(y+1)*SettingsGame.tileSize));
         }
     }
     @Override

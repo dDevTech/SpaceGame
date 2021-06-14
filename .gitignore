@@ -32,7 +32,7 @@ www-test/
 *.symbolMap
 
 ## IntelliJ, Android Studio:
-.idea/
+#.idea/
 *.ipr
 *.iws
 *.iml

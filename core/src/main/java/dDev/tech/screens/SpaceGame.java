@@ -17,7 +17,7 @@ public class SpaceGame extends Game {
 
      GameScreen gameScreen;
      Menu menuScreen;
-    TextFont fps;
+     TextFont fps;
      Stage game;
      Stage UIText;
      SpaceCamera cam;

@@ -12,13 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Bug solved html  GdxDefinition">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Console.java" afterDir="false" />
-    </list>
+    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -336,7 +330,7 @@
       <workItem from="1623842877946" duration="2000" />
       <workItem from="1623842896304" duration="900000" />
       <workItem from="1623843819506" duration="537000" />
-      <workItem from="1623844386762" duration="1191000" />
+      <workItem from="1623844386762" duration="1241000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1623702726044</created>
@@ -401,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623830126773</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Bug solved html  GdxDefinition">
+      <created>1623845624583</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1623845624583</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

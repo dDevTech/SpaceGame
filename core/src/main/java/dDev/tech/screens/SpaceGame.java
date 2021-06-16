@@ -40,6 +40,8 @@ public class SpaceGame extends Game {
     }
     @Override
     public void create() {
+        Gdx.app.setLogLevel(Application.LOG_DEBUG);
+        Gdx.app.log("CLIENT","Starting");
         connection = new ServerConnection(this);
 
         setMenuScreen();

@@ -16,6 +16,7 @@ public class Console extends Thread{
         while(logIn){
 
             String commandLine=scanner.nextLine();
+
             String[]splits = commandLine.split(" ");
 
             Consumer<String[]>function=commands.get(splits[0]);

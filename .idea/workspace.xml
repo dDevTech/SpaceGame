@@ -5,11 +5,20 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Bug solved html  GdxDefinition" />
+    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Bug solved html  GdxDefinition">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Console.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,6 +100,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="ResourceManagerPrefKey.ResourceType" value="DRAWABLE" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -98,7 +108,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="E:/Installations/AndroidSDK" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.117145896" />
@@ -117,7 +127,7 @@
       <recent name="D:\Programacion\GameLibGDX\SpaceGame" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.SpaceGame-0.0.1.jar">
+  <component name="RunManager" selected="Gradle.Web">
     <configuration name="android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="SpaceGame.android" />
       <option name="DEPLOY" value="true" />
@@ -197,19 +207,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SpaceGame" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -250,18 +247,14 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SpaceGame-0.0.1.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/desktop/build/libs/SpaceGame-0.0.1.jar" />
-      <method v="2" />
-    </configuration>
     <configuration name="2ClientsServer" type="Multirun" singleton="false" separateTabs="false" reuseTabsWithFailures="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="true" delayTime="0.0">
-      <runConfiguration name="Server" type="Application" />
+      <runConfiguration name="Server_screenview" type="Application" />
       <runConfiguration name="Client1" type="Application" />
       <runConfiguration name="Client2" type="Application" />
       <method v="2" />
     </configuration>
     <configuration name="3ClientsServer" type="Multirun" singleton="false" separateTabs="false" reuseTabsWithFailures="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="true" delayTime="0.0">
-      <runConfiguration name="Server" type="Application" />
+      <runConfiguration name="Server_screenview" type="Application" />
       <runConfiguration name="Client" type="Application" />
       <runConfiguration name="Client2" type="Application" />
       <runConfiguration name="Client1" type="Application" />
@@ -284,7 +277,7 @@
       <method v="2" />
     </configuration>
     <configuration name="WebServer" type="Multirun" singleton="false" separateTabs="false" reuseTabsWithFailures="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="true" delayTime="0.0">
-      <runConfiguration name="Server" type="Application" />
+      <runConfiguration name="Server_screenview" type="Application" />
       <runConfiguration name="Web" type="Gradle" />
       <method v="2" />
     </configuration>
@@ -303,11 +296,9 @@
       <item itemvalue="Multirun.3ClientsServer" />
       <item itemvalue="Multirun.ClientServer" />
       <item itemvalue="Multirun.2ClientsServer" />
-      <item itemvalue="JAR Application.SpaceGame-0.0.1.jar" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.SpaceGame-0.0.1.jar" />
         <item itemvalue="Gradle.SpaceGame" />
         <item itemvalue="Gradle.SpaceGame" />
         <item itemvalue="Gradle.SpaceGame" />
@@ -340,7 +331,12 @@
       <workItem from="1623824746727" duration="2395000" />
       <workItem from="1623827172205" duration="357000" />
       <workItem from="1623827545440" duration="125000" />
-      <workItem from="1623827684217" duration="2265000" />
+      <workItem from="1623827684217" duration="2479000" />
+      <workItem from="1623842682142" duration="187000" />
+      <workItem from="1623842877946" duration="2000" />
+      <workItem from="1623842896304" duration="900000" />
+      <workItem from="1623843819506" duration="537000" />
+      <workItem from="1623844386762" duration="1191000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1623702726044</created>
@@ -391,7 +387,21 @@
       <option name="project" value="LOCAL" />
       <updated>1623829873055</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Bug solved html  GdxDefinition">
+      <created>1623830119962</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1623830119962</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Bug solved html  GdxDefinition">
+      <created>1623830126773</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1623830126773</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +418,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="develop" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>

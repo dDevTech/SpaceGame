@@ -1,1 +1,2 @@
-include 'html', 'core', 'server', 'shared', 'android', 'ios', 'desktop', 'lwjgl3'
+include 'html', 'core',  'shared', 'android', 'ios', 'desktop', 'lwjgl3','serverSpaceGame','serverSpaceGame:core',
+        'serverSpaceGame:headless','serverSpaceGame:lwjgl3','serverSpaceGame:server'

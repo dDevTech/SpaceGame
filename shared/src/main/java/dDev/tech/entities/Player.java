@@ -23,7 +23,7 @@ public class Player extends  Entity {
             setY(camera.position.y);
         }
         shaper.getShaper().setColor(new Color(0,109/255f,209/255f,1f));
-
+        
         shaper.getShaper().filledPolygon(getX(),getY(),100,size/2,0);
     }
     public void setMainPlayer(Camera camera){

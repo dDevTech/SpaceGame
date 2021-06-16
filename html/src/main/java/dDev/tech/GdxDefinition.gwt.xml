@@ -15,7 +15,7 @@
 	<inherits name="com.kotcrab.vis.vis-ui" />
 	<inherits name="com.badlogic.gdx.pay_client"/>
 	<inherits name="dDev.tech.Shared" />
-	<inherits name="dDev.tech.SpaceGame" />
+	<inherits name="dDev.tech.ServerView" />
 	<inherits name="space.earlygrey.shapedrawer" />
 	<entry-point class="dDev.tech.gwt.GwtLauncher" />
 	<set-configuration-property name="gdx.assetpath" value="../assets" />

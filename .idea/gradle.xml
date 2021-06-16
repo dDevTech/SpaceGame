@@ -15,7 +15,11 @@
             <option value="$PROJECT_DIR$/html" />
             <option value="$PROJECT_DIR$/ios" />
             <option value="$PROJECT_DIR$/lwjgl3" />
-            <option value="$PROJECT_DIR$/server" />
+            <option value="$PROJECT_DIR$/serverSpaceGame" />
+            <option value="$PROJECT_DIR$/serverSpaceGame/core" />
+            <option value="$PROJECT_DIR$/serverSpaceGame/headless" />
+            <option value="$PROJECT_DIR$/serverSpaceGame/lwjgl3" />
+            <option value="$PROJECT_DIR$/serverSpaceGame/server" />
             <option value="$PROJECT_DIR$/shared" />
           </set>
         </option>

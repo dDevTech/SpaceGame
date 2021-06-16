@@ -23,7 +23,7 @@ public class Server extends WebSocketServer{
     }
     public void startGame(){
         Console.logInfo("Starting game");
-        String json=loadSettings("server/map/settingsMap.json");
+        String json=loadSettings("serverSpaceGame/server/map/settingsMap.json");
         System.out.println(json);
         broadcast(json);
         game.start();

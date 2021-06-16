@@ -1,15 +1,8 @@
 package dDev.tech.server;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import com.sun.tools.jdeprscan.scan.Scan;
-
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.concurrent.Semaphore;
 import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class Console extends Thread{
     private static  Scanner scanner= new Scanner(System.in);

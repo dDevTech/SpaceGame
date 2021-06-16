@@ -54,7 +54,7 @@ public class GameScreen implements Screen {
         player= new Player();
         player.setX(150);
         player.setY(150);
-        player.setMainPlayer( main.cam);
+        player.setMainPlayer(main.cam);
         main.game.addActor(player);
 
 
@@ -62,8 +62,8 @@ public class GameScreen implements Screen {
 
 
 
-        main.cam.position.x=0;
-        main.cam.position.y=0;
+       // main.cam.position.x=0;
+       // main.cam.position.y=0;
 
     }
     @Override

@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Bug solved html  GdxDefinition" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/desktop">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/serverSpaceGame">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/serverSpaceGame/server">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SpaceGame" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SpaceGame" type="f1a62948:ProjectNode" />
+                <item name="desktop" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SpaceGame" type="f1a62948:ProjectNode" />
+                <item name="serverSpaceGame" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SpaceGame" type="f1a62948:ProjectNode" />
+                <item name="serverSpaceGame" type="2d1252cf:ModuleNode" />
+                <item name="server" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SpaceGame" type="f1a62948:ProjectNode" />
+                <item name="serverSpaceGame" type="2d1252cf:ModuleNode" />
+                <item name="server" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="develop" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1txBzVbYX7i2XKG3hGvc7BjPEX8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ResourceManagerPrefKey.ResourceType" value="DRAWABLE" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="E:/Installations/AndroidSDK" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.117145896" />
+    <property name="project.structure.side.proportion" value="0.31761009" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programacion\GameLibGDX\SpaceGame\assets" />
+      <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\server\map" />
+      <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\server\src\main\java\dDev\tech" />
+      <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\server\src\main\java" />
+      <recent name="D:\Programacion\GameLibGDX\SpaceGame" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programacion\GameLibGDX\SpaceGame" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JAR Application.SpaceGame-0.0.1.jar">
+    <configuration name="android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="SpaceGame.android" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <Java />
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="dDev.tech.lwjgl3.Lwjgl3Launcher" />
+      <module name="SpaceGame.lwjgl3.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client1" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="dDev.tech.lwjgl3.Lwjgl3Launcher" />
+      <module name="SpaceGame.lwjgl3.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client2" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="dDev.tech.desktop.DesktopLauncher" />
+      <module name="SpaceGame.desktop.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="dDev.tech.server.ServerLauncher" />
+      <module name="SpaceGame.serverSpaceGame.server.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server_screenview" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="dDev.tech.lwjgl3.Lwjgl3Launcher" />
+      <module name="SpaceGame.serverSpaceGame.lwjgl3.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpaceGame" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Web" type="GradleRunConfiguration" factoryName="Gradle" singleton="false">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="html:superDev" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="SpaceGame-0.0.1.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/desktop/build/libs/SpaceGame-0.0.1.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="2ClientsServer" type="Multirun" singleton="false" separateTabs="false" reuseTabsWithFailures="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="true" delayTime="0.0">
+      <runConfiguration name="Server" type="Application" />
+      <runConfiguration name="Client1" type="Application" />
+      <runConfiguration name="Client2" type="Application" />
+      <method v="2" />
+    </configuration>
+    <configuration name="3ClientsServer" type="Multirun" singleton="false" separateTabs="false" reuseTabsWithFailures="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="true" delayTime="0.0">
+      <runConfiguration name="Server" type="Application" />
+      <runConfiguration name="Client" type="Application" />
+      <runConfiguration name="Client2" type="Application" />
+      <runConfiguration name="Client1" type="Application" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ClientServer" type="Multirun" singleton="false" separateTabs="false" reuseTabsWithFailures="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="true" delayTime="0.0">
+      <runConfiguration name="Server" type="Application" />
+      <runConfiguration name="Client" type="Application" />
+      <method v="2" />
+    </configuration>
+    <configuration name="CrossPlatform" type="Multirun" separateTabs="false" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0.0">
+      <runConfiguration name="3ClientsServer" type="Multirun" />
+      <runConfiguration name="Web" type="Gradle" />
+      <runConfiguration name="android" type="Android App" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ServerScreenClient" type="Multirun" separateTabs="false" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0.0">
+      <runConfiguration name="Server_screenview" type="Application" />
+      <runConfiguration name="Client" type="Application" />
+      <method v="2" />
+    </configuration>
+    <configuration name="WebServer" type="Multirun" singleton="false" separateTabs="false" reuseTabsWithFailures="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="true" delayTime="0.0">
+      <runConfiguration name="Server" type="Application" />
+      <runConfiguration name="Web" type="Gradle" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Android App.android" />
+      <item itemvalue="Application.Server_screenview" />
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Client1" />
+      <item itemvalue="Application.Client2" />
+      <item itemvalue="Gradle.Web" />
+      <item itemvalue="Gradle.SpaceGame" />
+      <item itemvalue="Multirun.ServerScreenClient" />
+      <item itemvalue="Multirun.WebServer" />
+      <item itemvalue="Multirun.CrossPlatform" />
+      <item itemvalue="Multirun.3ClientsServer" />
+      <item itemvalue="Multirun.ClientServer" />
+      <item itemvalue="Multirun.2ClientsServer" />
+      <item itemvalue="JAR Application.SpaceGame-0.0.1.jar" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JAR Application.SpaceGame-0.0.1.jar" />
+        <item itemvalue="Gradle.SpaceGame" />
+        <item itemvalue="Gradle.SpaceGame" />
+        <item itemvalue="Gradle.SpaceGame" />
+        <item itemvalue="Gradle.SpaceGame" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Changes" />
+      <created>1623701124749</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623701124749</updated>
+      <workItem from="1623701126249" duration="153000" />
+      <workItem from="1623701297174" duration="105000" />
+      <workItem from="1623701543581" duration="14000" />
+      <workItem from="1623701576721" duration="140000" />
+      <workItem from="1623701980196" duration="581000" />
+      <workItem from="1623702575568" duration="279000" />
+      <workItem from="1623702870075" duration="637000" />
+      <workItem from="1623742548660" duration="40000" />
+      <workItem from="1623742973312" duration="1769000" />
+      <workItem from="1623745290836" duration="155000" />
+      <workItem from="1623745484533" duration="425000" />
+      <workItem from="1623745921901" duration="377000" />
+      <workItem from="1623781574613" duration="942000" />
+      <workItem from="1623783113176" duration="15000" />
+      <workItem from="1623824746727" duration="2395000" />
+      <workItem from="1623827172205" duration="357000" />
+      <workItem from="1623827545440" duration="125000" />
+      <workItem from="1623827684217" duration="2265000" />
+    </task>
+    <task id="LOCAL-00001" summary="Changes">
+      <created>1623702726044</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623702726044</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changes">
+      <created>1623702740525</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623702740525</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changes">
+      <created>1623702754169</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623702754169</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Changes">
+      <created>1623745886678</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623745886678</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Setup new project structure with OpenGL for Server to visualize collisions and physics">
+      <created>1623828075196</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623828075196</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Bug solved html  GdxDefinition">
+      <created>1623828657967</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1623828657967</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Bug solved html  GdxDefinition">
+      <created>1623829873055</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1623829873055</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/develop" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="develop" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changes" />
+    <MESSAGE value="Setup new project structure with OpenGL for Server to visualize collisions and physics" />
+    <MESSAGE value="Bug solved html  GdxDefinition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug solved html  GdxDefinition" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

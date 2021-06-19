@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import dDev.tech.entities.SpaceCamera;
+import dDev.tech.map.SpaceWorld;
 import dDev.tech.net.ServerConnection;
 import dDev.tech.screens.GameScreen;
 import dDev.tech.screens.Menu;
@@ -22,7 +23,7 @@ public class SpaceGame extends Game {
      Stage UIText;
      SpaceCamera cam;
      SpriteBatch batch;
-
+    SpaceWorld spaceWorld;
      BitmapFont font;
 
     public ServerConnection getConnection() {
@@ -53,6 +54,8 @@ public class SpaceGame extends Game {
         batch = new SpriteBatch();
         font = new BitmapFont();
         fps=new TextFont(font,"FPS",0.05f,0.05f);
+
+         spaceWorld = new SpaceWorld(cam);
     }
 
     @Override

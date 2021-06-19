@@ -12,7 +12,7 @@ public class Player {
     private WebSocket socket;
     private JsonSerializer serialiazer;
     BodyDef bodyDef = new BodyDef();
-    Body body;
+    public Body body;
     CircleShape shape = new CircleShape();
     public Player(WebSocket socket, World world){
         this.socket = socket;

@@ -3,8 +3,6 @@ package dDev.tech.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import dDev.tech.entities.Player;
 import dDev.tech.inputs.InputHandler;
@@ -48,7 +46,7 @@ public class GameScreen implements Screen {
         main.UIText.addActor( main.fps);
 
 
-        map = new Map("Map2.png", main.cam);
+        map = new Map("Map2.png", main.cam,main.spaceWorld);
         main.game.addActor(map);
 
         player= new Player();
@@ -74,14 +72,25 @@ public class GameScreen implements Screen {
         if(inputs.isUp()&& !inputs.isDown())  main.cam.position.y+=speed*Gdx.graphics.getDeltaTime();
         if(inputs.isRight()&& !inputs.isLeft())  main.cam.position.x+=speed*Gdx.graphics.getDeltaTime();
         if(inputs.isLeft()&& !inputs.isRight())  main.cam.position.x-=speed*Gdx.graphics.getDeltaTime();
+
+
         main.game.getViewport().apply();
+
         main.game.draw();
+        main.spaceWorld.renderLight(main.cam);
+        main.spaceWorld.debugRenderer.render(main.spaceWorld.world, main.game.getViewport().getCamera().combined);
 
 
+        //Gdx.app.log("RENDER",main.cam.position.toString());
         main.fps.updateText("FPS: "+Gdx.graphics.getFramesPerSecond());
+
+
 
         main.UIText.getViewport().apply();
         main.UIText.draw();
+        main.spaceWorld.updatePhysics();
+
+
     }
     @Override
     public void resize(int width, int height) {
@@ -109,7 +118,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        main.spaceWorld.dispose();
 
     }
 }

@@ -20,7 +20,7 @@ public class Map extends Actor implements Disposable {
 
     private float perspectiveInclination=0.2f;
     private OrthographicCamera camera;
-    public Map(String imagePath,OrthographicCamera camera){
+    public Map(String imagePath,OrthographicCamera camera,SpaceWorld space){
         super();
         this.camera = camera;
 
@@ -32,7 +32,7 @@ public class Map extends Actor implements Disposable {
                 Color c=new Color(mapImage.getPixel(i,j));
                 Tile.TILE_TYPE type= Tile.TILE_TYPE.BLOCK;
                 if(c.toIntBits()==Color.WHITE.toIntBits())type= Tile.TILE_TYPE.NONE;
-                Tile tile = new Tile(j*SettingsGame.tileSize,i*SettingsGame.tileSize,SettingsGame.tileSize,c, type);
+                Tile tile = new Tile(j*SettingsGame.tileSize,i*SettingsGame.tileSize,SettingsGame.tileSize,c, type,space,camera);
                 map[i][j]= tile;
             }
         }
@@ -43,7 +43,7 @@ public class Map extends Actor implements Disposable {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-
+        Gdx.app.log("DEBUG","D");
         if(shaper==null)shaper= new Shaper(batch);
 
         //Calculate matrix array coordinates in camera bounds
@@ -82,7 +82,7 @@ public class Map extends Actor implements Disposable {
                 if(map[y][x].getType()== Tile.TILE_TYPE.NONE)continue;
                 Color c =map[y][x].getColor();
                 shaper.getShaper().setColor(c);
-                shaper.getShaper().filledRectangle(x*SettingsGame.tileSize,y*SettingsGame.tileSize,SettingsGame.tileSize,SettingsGame.tileSize);
+                shaper.getShaper().filledRectangle(map[y][x].getX(),map[y][x].getY(),map[y][x].getSize(),map[y][x].getSize());
 
                 //draw lines
                 c = new Color(Color.WHITE);

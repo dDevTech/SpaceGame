@@ -90,7 +90,8 @@ public class Map extends Actor implements Disposable {
                 shaper.getShaper().setColor(c);
 
                 for(Vector2[]vertices:map[y][x].getLines()){
-                    shaper.getShaper().line(vertices[0],vertices[1]);
+
+                    shaper.getShaper().line(vertices[0],vertices[1],0.025f);
                 }
 
 

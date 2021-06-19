@@ -12,16 +12,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SpaceWorld.java" afterDir="false" />
+    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="New illuminations and world physics system. Not working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SettingsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SettingsGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SpaceWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SpaceWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" afterDir="false" />
     </list>
+    <list id="f713f4a1-6bd5-462a-9ad6-70e21fc6e18f" name="Changes by ll199" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +90,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="e4958ff765aeffba389a3359609d438df5ce4514" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -110,6 +110,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="E:/Installations/AndroidSDK" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -132,7 +133,7 @@
       <recent name="D:\Programacion\GameLibGDX\SpaceGame" />
     </key>
   </component>
-  <component name="RunManager" selected="Multirun.AndroidServer">
+  <component name="RunManager" selected="Multirun.ServerScreenClient">
     <configuration name="android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="SpaceGame.android" />
       <option name="DEPLOY" value="true" />
@@ -208,6 +209,17 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="dDev.tech.lwjgl3.Lwjgl3Launcher" />
       <module name="SpaceGame.serverSpaceGame.lwjgl3.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -348,6 +360,8 @@
       <workItem from="1623842896304" duration="900000" />
       <workItem from="1623843819506" duration="537000" />
       <workItem from="1623844386762" duration="1241000" />
+      <workItem from="1624109223900" duration="177000" />
+      <workItem from="1624113034351" duration="2515000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1623702726044</created>
@@ -419,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623845624583</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="New illuminations and world physics system. Not working">
+      <created>1624104502517</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1624104502517</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,7 +499,8 @@
     <MESSAGE value="Changes" />
     <MESSAGE value="Setup new project structure with OpenGL for Server to visualize collisions and physics" />
     <MESSAGE value="Bug solved html  GdxDefinition" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug solved html  GdxDefinition" />
+    <MESSAGE value="New illuminations and world physics system. Not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="New illuminations and world physics system. Not working" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

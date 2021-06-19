@@ -7,7 +7,7 @@ import dDev.tech.tools.Shaper;
 
 public class Player extends  Entity {
     private Shaper shaper;
-    private float size =25;
+    private float size =0.5f;
     private Camera camera;
     private boolean mainPlayer=false;
     public Player(){

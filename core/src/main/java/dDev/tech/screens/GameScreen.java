@@ -16,7 +16,7 @@ public class GameScreen implements Screen {
     private Player player;
     private InputHandler inputs;
 
-    private float speed=150f;
+    private float speed=3f;
 
 
     public GameScreen(SpaceGame main){
@@ -40,7 +40,9 @@ public class GameScreen implements Screen {
 
 
         main.UIText.setViewport(new ScreenViewport());
+
         main.fps.setPosition(-Gdx.graphics.getWidth()/4f,-Gdx.graphics.getHeight()/4f);
+
         main.fps.setScale(2f);
 
         main.UIText.addActor( main.fps);

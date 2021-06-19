@@ -47,7 +47,7 @@ public class SpaceGame extends Game {
 
         setMenuScreen();
         cam = new SpaceCamera();
-        FitViewport viewport=new FitViewport(800,450,cam);
+        FitViewport viewport=new FitViewport(16,9,cam);
         game= new Stage(viewport);
         UIText = new Stage();
 
@@ -55,13 +55,14 @@ public class SpaceGame extends Game {
         font = new BitmapFont();
         fps=new TextFont(font,"FPS",0.05f,0.05f);
 
-         spaceWorld = new SpaceWorld(cam);
+        spaceWorld = new SpaceWorld(cam,viewport);
     }
 
     @Override
     public void resize(int width, int height) {
         game.getViewport().update(width, height);
 
+        spaceWorld.updateWorldViewport(game.getViewport());
         UIText.getViewport().update(width, height);
         UIText.act();
     }

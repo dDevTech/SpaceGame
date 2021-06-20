@@ -4,31 +4,30 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import dDev.tech.entities.Player;
 import dDev.tech.inputs.InputHandler;
 import dDev.tech.map.Map;
 
-public class GameScreen implements Screen {
+public class GameDebug implements Screen {
 
     private Map map;
-    private SpaceGame main;
-
-    private Player player;
+    private ServerView main;
     private InputHandler inputs;
+
 
     private float speed=3f;
 
 
-    public GameScreen(SpaceGame main){
-        inputs = new InputHandler() {
+    public GameDebug(ServerView main){
+
+
+        this.main = main;
+        inputs= new InputHandler() {
             @Override
             public void onUpdate() {
-
 
             }
         };
         Gdx.input.setInputProcessor(inputs);
-        this.main = main;
     }
 
     @Override
@@ -52,16 +51,6 @@ public class GameScreen implements Screen {
 
         map = new Map("Map2.png", main.cam,main.spaceWorld);
         main.mapLayer.addActor(map);
-
-        player= new Player(main.spaceWorld);
-        player.setPhysicalPosition(150,150);
-        player.setMainPlayer(main.cam);
-        main.entityLayer.addActor(player);
-
-
-
-
-
 
        // main.cam.position.x=0;
        // main.cam.position.y=0;

@@ -8,8 +8,10 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.Filter;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import dDev.tech.entities.FilterLayer;
 
 import javax.swing.text.View;
 
@@ -24,7 +26,7 @@ public class SpaceWorld{
         debugRenderer = new Box2DDebugRenderer();
 
         float distance = 8;
-        int rays = 32;
+        int rays = 256;
         rayHandler = new RayHandler(world);
         rayHandler.setAmbientLight(0f, 0f, 0f, 0f);
         updateWorldViewport(viewport);
@@ -32,11 +34,11 @@ public class SpaceWorld{
         rayHandler.setShadows(true);
         rayHandler.setBlur(true);
         rayHandler.setBlurNum(3);
-        PointLight p1 =new PointLight(rayHandler, rays, Color.SKY, distance
+        PointLight p1 =new PointLight(rayHandler, rays, Color.SKY.mul(1f,1f,1f,0.8f), distance
                 , (camera.viewportWidth / 4)
                 , (camera.viewportHeight / 4) * 3 );
 
-        p2 =new PointLight(rayHandler, rays, Color.PINK, distance
+        p2 =new PointLight(rayHandler, rays,  Color.PINK.mul(1f,1f,1f,0.8f), distance
                 , (camera.viewportWidth  / 4) * 3
                 , (camera.viewportHeight  / 4 ) * 3);
 

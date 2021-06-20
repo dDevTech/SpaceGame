@@ -8,5 +8,8 @@ dependencies {
 	api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
 	api "com.kotcrab.vis:vis-ui:$visUiVersion"
 	api "space.earlygrey:shapedrawer:$shapeDrawerVersion"
+	implementation project(path: ':shared')
 	implementation project(path: ':serverSpaceGame:server')
+	implementation "com.github.MrStahlfelge.gdx-websockets:serialization:$websocketSerializationVersion"
+	implementation "org.java-websocket:Java-WebSocket:1.5.1"
 }

@@ -12,16 +12,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="New illuminations and world physics system. Not working">
+    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Solved bug physics renderer not displaying correctly. Resize everything to lower sizes">
+      <change afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/MenuDebug.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/FilterLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SettingsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SettingsGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SpaceWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SpaceWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/inputs/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/inputs/InputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SettingsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SettingsGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SpaceWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SpaceWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/ui/TextFont.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/ui/TextFont.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/ServerView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/headless/src/main/java/dDev/tech/headless/HeadlessLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/headless/src/main/java/dDev/tech/headless/HeadlessLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/lwjgl3/src/main/java/dDev/tech/lwjgl3/Lwjgl3Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/lwjgl3/src/main/java/dDev/tech/lwjgl3/Lwjgl3Launcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" afterDir="false" />
     </list>
-    <list id="f713f4a1-6bd5-462a-9ad6-70e21fc6e18f" name="Changes by ll199" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,6 +95,14 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="develop" />
   </component>
@@ -114,7 +133,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="E:/Installations/AndroidSDK" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.117145896" />
@@ -123,17 +142,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\core\src\main\java\dDev\tech" />
       <recent name="D:\Programacion\GameLibGDX\SpaceGame\assets" />
       <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\server\map" />
       <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\server\src\main\java\dDev\tech" />
       <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\server\src\main\java" />
-      <recent name="D:\Programacion\GameLibGDX\SpaceGame" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programacion\GameLibGDX\SpaceGame" />
     </key>
   </component>
-  <component name="RunManager" selected="Multirun.ServerScreenClient">
+  <component name="RunManager" selected="Multirun.WebServer">
     <configuration name="android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="SpaceGame.android" />
       <option name="DEPLOY" value="true" />
@@ -361,7 +380,12 @@
       <workItem from="1623843819506" duration="537000" />
       <workItem from="1623844386762" duration="1241000" />
       <workItem from="1624109223900" duration="177000" />
-      <workItem from="1624113034351" duration="2515000" />
+      <workItem from="1624113034351" duration="2707000" />
+      <workItem from="1624115841310" duration="929000" />
+      <workItem from="1624120416016" duration="1290000" />
+      <workItem from="1624171621724" duration="4578000" />
+      <workItem from="1624176502617" duration="446000" />
+      <workItem from="1624186640637" duration="1051000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1623702726044</created>
@@ -440,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624104502517</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Solved bug physics renderer not displaying correctly. Resize everything to lower sizes">
+      <created>1624115693065</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1624115693065</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,7 +531,8 @@
     <MESSAGE value="Setup new project structure with OpenGL for Server to visualize collisions and physics" />
     <MESSAGE value="Bug solved html  GdxDefinition" />
     <MESSAGE value="New illuminations and world physics system. Not working" />
-    <option name="LAST_COMMIT_MESSAGE" value="New illuminations and world physics system. Not working" />
+    <MESSAGE value="Solved bug physics renderer not displaying correctly. Resize everything to lower sizes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solved bug physics renderer not displaying correctly. Resize everything to lower sizes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

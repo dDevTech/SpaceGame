@@ -10,6 +10,7 @@ import com.github.czyzby.websocket.WebSockets;
 import dDev.tech.screens.SpaceGame;
 
 public class ServerConnection {
+
     private SpaceGame core;
 
     public ServerConnection(SpaceGame core){
@@ -25,7 +26,7 @@ public class ServerConnection {
             @Override
             public boolean onOpen(WebSocket webSocket) {
 
-                webSocket.send("Hola que tal");
+                Gdx.app.log("NET","Connection created");
                 return false;
             }
 
@@ -42,7 +43,17 @@ public class ServerConnection {
 
                 System.out.println(settings);
                 if(settings.equals("settings")){
-                    core.setGameScreen();
+                    Gdx.app.postRunnable(new Runnable() {
+                        @Override
+                        public void run() {
+                            core.setGameScreen();
+                        }
+                    });
+
+
+
+
+
                 }
 
 
@@ -62,7 +73,7 @@ public class ServerConnection {
             }
         });
         socket.connect();
-        Gdx.app.log("NET","Connection created");
+
 
     }
 }

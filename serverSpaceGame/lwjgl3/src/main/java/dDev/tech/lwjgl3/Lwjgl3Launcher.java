@@ -2,7 +2,7 @@ package dDev.tech.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import dDev.tech.ServerView;
+import dDev.tech.screens.ServerView;
 
 
 /** Launches the desktop (LWJGL3) application. */

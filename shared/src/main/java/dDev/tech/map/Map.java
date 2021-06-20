@@ -43,7 +43,7 @@ public class Map extends Actor implements Disposable {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        Gdx.app.log("DEBUG","D");
+
         if(shaper==null)shaper= new Shaper(batch);
 
         //Calculate matrix array coordinates in camera bounds
@@ -52,8 +52,8 @@ public class Map extends Actor implements Disposable {
         float xFinal=2+xCorner+camera.viewportWidth/SettingsGame.tileSize;
         float yFinal=2+yCorner+camera.viewportHeight/SettingsGame.tileSize;
 
-        shaper.getShaper().setColor(Color.BLACK);
-        shaper.getShaper().filledRectangle(camera.position.x-camera.viewportWidth/2,camera.position.y-camera.viewportHeight/2, camera.viewportWidth, camera.viewportHeight);
+        //shaper.getShaper().setColor(Color.BLACK);
+        //shaper.getShaper().filledRectangle(camera.position.x-camera.viewportWidth/2,camera.position.y-camera.viewportHeight/2, camera.viewportWidth, camera.viewportHeight);
 
         //Get only tiles that are visible to camera viewport
         if(xCorner<0)xCorner=0;
@@ -65,12 +65,13 @@ public class Map extends Actor implements Disposable {
         //3d effect
         for(int y=(int)(yFinal-1);y>=(int)yCorner;y--){
             for(int x=(int)(xFinal-1);x>=(int)xCorner;x--){
-                if(map[y][x].getType()== Tile.TILE_TYPE.NONE)continue;
-                Color color =new Color(map[y][x].getColor());
-                color.a=0.5f;
-                shaper.getShaper().setColor(color);
-                for(Vector2[]vertices:map[y][x].getTriangles()){
-                    shaper.getShaper().filledTriangle(vertices[0],vertices[1],vertices[2]);
+                if(map[y][x].getType()!= Tile.TILE_TYPE.NONE) {
+                    Color color = new Color(map[y][x].getColor());
+                    color.a = 0.5f;
+                    shaper.getShaper().setColor(color);
+                    for (Vector2[] vertices : map[y][x].getTriangles()) {
+                        shaper.getShaper().filledTriangle(vertices[0], vertices[1], vertices[2]);
+                    }
                 }
 
             }
@@ -79,21 +80,21 @@ public class Map extends Actor implements Disposable {
         //normal block
         for(int y=(int)yCorner;y<yFinal;y++){
             for(int x=(int)xCorner;x<xFinal;x++){
-                if(map[y][x].getType()== Tile.TILE_TYPE.NONE)continue;
-                Color c =map[y][x].getColor();
-                shaper.getShaper().setColor(c);
-                shaper.getShaper().filledRectangle(map[y][x].getX(),map[y][x].getY(),map[y][x].getSize(),map[y][x].getSize());
+                if(map[y][x].getType()!= Tile.TILE_TYPE.NONE) {
+                    Color c = map[y][x].getColor();
+                    shaper.getShaper().setColor(c);
+                    shaper.getShaper().filledRectangle(map[y][x].getX(), map[y][x].getY(), map[y][x].getSize(), map[y][x].getSize());
 
-                //draw lines
-                c = new Color(Color.WHITE);
-                c.a=0.3f;
-                shaper.getShaper().setColor(c);
+                    //draw lines
+                    c = new Color(Color.WHITE);
+                    c.a = 0.3f;
+                    shaper.getShaper().setColor(c);
 
-                for(Vector2[]vertices:map[y][x].getLines()){
+                    for (Vector2[] vertices : map[y][x].getLines()) {
 
-                    shaper.getShaper().line(vertices[0],vertices[1],0.025f);
+                        shaper.getShaper().line(vertices[0], vertices[1], 0.025f);
+                    }
                 }
-
 
             }
         }

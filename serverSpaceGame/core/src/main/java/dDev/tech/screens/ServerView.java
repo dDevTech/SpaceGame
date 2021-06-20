@@ -1,21 +1,23 @@
 package dDev.tech.screens;
 
-import com.badlogic.gdx.*;
-
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import dDev.tech.entities.SpaceCamera;
 import dDev.tech.map.SpaceWorld;
-import dDev.tech.net.ServerConnection;
+import dDev.tech.server.Server;
+import dDev.tech.server.ServerLauncher;
 import dDev.tech.ui.TextFont;
 
 
-public class SpaceGame extends Game {
+public class ServerView extends Game {
 
-     GameScreen gameScreen;
-     Menu menuScreen;
+     GameDebug gameScreen;
+     MenuDebug menuScreen;
      TextFont fps;
      Stage mapLayer;
      Stage entityLayer;
@@ -25,17 +27,15 @@ public class SpaceGame extends Game {
      SpaceWorld spaceWorld;
      BitmapFont font;
      FitViewport viewport;
-    public ServerConnection getConnection() {
-        return connection;
-    }
 
-    ServerConnection connection;
+
+
     public void setGameScreen(){
-        gameScreen = new GameScreen(this);
+        gameScreen = new GameDebug(this);
         setScreen(gameScreen);
     }
     public void setMenuScreen(){
-        menuScreen = new Menu(this);
+        menuScreen = new MenuDebug(this);
         setScreen(menuScreen);
     }
     @Override
@@ -43,7 +43,6 @@ public class SpaceGame extends Game {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
 
 
-        setMenuScreen();
         cam = new SpaceCamera();
         viewport=new FitViewport(16,9,cam);
         mapLayer = new Stage(viewport);
@@ -55,12 +54,8 @@ public class SpaceGame extends Game {
         fps=new TextFont(font,"FPS",0.05f,0.05f);
 
         spaceWorld = new SpaceWorld(cam,viewport);
-
-
-
-
-        Gdx.app.log("CLIENT","Starting");
-        connection = new ServerConnection(this);
+        setGameScreen();
+        ServerLauncher.start();
 
     }
 

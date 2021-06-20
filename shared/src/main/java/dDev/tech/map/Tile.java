@@ -4,11 +4,10 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.List;
 import com.badlogic.gdx.utils.Array;
+import dDev.tech.entities.FilterLayer;
 
 public class Tile {
     private  float x;
@@ -51,12 +50,15 @@ public class Tile {
         if(type == TILE_TYPE.BLOCK){
             groundBodyDef = new BodyDef();
             groundBodyDef.position.set(new Vector2(x+size/2f, y+size/2f));
+
             Body groundBody = space.world.createBody(groundBodyDef);
             PolygonShape groundBox = new PolygonShape();
 
             groundBox.setAsBox(size/2f,size/2f);
-            groundBody.createFixture(groundBox, 0.0f);
-
+            FixtureDef def = new FixtureDef();
+            def.shape = groundBox;
+            Fixture fixture =groundBody.createFixture(def);
+            def.filter.categoryBits = (short)FilterLayer.BLOCK.ordinal();
             groundBox.dispose();
         }
 

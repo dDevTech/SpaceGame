@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import dDev.tech.inputs.InputHandler;
 import dDev.tech.map.Map;
+import dDev.tech.tools.PhysicStepper;
+import dDev.tech.server.ServerNet.ServerLauncher;
 
 public class GameDebug implements Screen {
 
@@ -15,7 +17,7 @@ public class GameDebug implements Screen {
 
 
     private float speed=3f;
-
+    private PhysicStepper physicSteps ;
 
     public GameDebug(ServerView main){
 
@@ -27,33 +29,20 @@ public class GameDebug implements Screen {
 
             }
         };
+        physicSteps = new PhysicStepper();
         Gdx.input.setInputProcessor(inputs);
     }
 
     @Override
     public void show() {
 
-
-
-
-
         main.UIText.setViewport(new ScreenViewport());
-
         main.fps.setPosition(-Gdx.graphics.getWidth()/4f,-Gdx.graphics.getHeight()/4f);
-
         main.fps.setScale(2f);
-
         main.UIText.addActor( main.fps);
-
-
-
-
 
         map = new Map("Map2.png", main.cam,main.spaceWorld);
         main.mapLayer.addActor(map);
-
-       // main.cam.position.x=0;
-       // main.cam.position.y=0;
 
     }
     @Override
@@ -65,25 +54,22 @@ public class GameDebug implements Screen {
         if(inputs.isRight()&& !inputs.isLeft())  main.cam.position.x+=speed*Gdx.graphics.getDeltaTime();
         if(inputs.isLeft()&& !inputs.isRight())  main.cam.position.x-=speed*Gdx.graphics.getDeltaTime();
 
-
         main.mapLayer.getViewport().apply();
 
-
-        main.spaceWorld.renderLight(main.cam);
+        main.spaceWorld.renderLights(main.cam);
         main.entityLayer.draw();
         main.mapLayer.draw();
         main.spaceWorld.debugRenderer.render(main.spaceWorld.world, main.mapLayer.getViewport().getCamera().combined);
 
 
-        //Gdx.app.log("RENDER",main.cam.position.toString());
         main.fps.updateText("FPS: "+Gdx.graphics.getFramesPerSecond());
-
-
 
         main.UIText.getViewport().apply();
         main.UIText.draw();
-        main.spaceWorld.updatePhysics();
 
+        ServerLauncher.game.updateWorld();
+        main.spaceWorld.updatePhysics(Gdx.graphics.getDeltaTime());
+        ServerLauncher.game.getWorld().deltaTime = Gdx.graphics.getDeltaTime();
 
     }
     @Override

@@ -7,11 +7,14 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+
+import dDev.tech.server.ServerUtils.Callback;
 import dDev.tech.entities.SpaceCamera;
 import dDev.tech.map.SpaceWorld;
-import dDev.tech.server.Server;
-import dDev.tech.server.ServerLauncher;
+import dDev.tech.server.ServerNet.ServerLauncher;
+import dDev.tech.server.ServerEntity.ServerPlayer;
 import dDev.tech.ui.TextFont;
+import org.java_websocket.WebSocket;
 
 
 public class ServerView extends Game {
@@ -40,6 +43,16 @@ public class ServerView extends Game {
     }
     @Override
     public void create() {
+        ServerLauncher.USING_GRAPHICS = true;
+        ServerLauncher.callback = new Callback() {
+            @Override
+            public void onAddPlayer(ServerPlayer player, WebSocket conn) {
+                entityLayer.addActor(player);
+                System.out.println( ServerLauncher.game.getPlayers());
+            }
+        };
+
+        ServerLauncher.start();
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
 
 
@@ -53,9 +66,10 @@ public class ServerView extends Game {
         font = new BitmapFont();
         fps=new TextFont(font,"FPS",0.05f,0.05f);
 
-        spaceWorld = new SpaceWorld(cam,viewport);
+        spaceWorld = ServerLauncher.game.getWorld();
+        spaceWorld.createViewWorld(cam,viewport);
         setGameScreen();
-        ServerLauncher.start();
+
 
     }
 

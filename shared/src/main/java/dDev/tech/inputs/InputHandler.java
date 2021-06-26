@@ -4,25 +4,25 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 
 public abstract class InputHandler implements InputProcessor {
-    private boolean up,left,right,down;
+    private boolean[]movements = new boolean[4];
     public abstract void onUpdate();
     @Override
     public boolean keyDown(int keycode) {
 
-        if(keycode== Input.Keys.W) up=true;
-        if(keycode== Input.Keys.S) down=true;
-        if(keycode== Input.Keys.A) left=true;
-        if(keycode== Input.Keys.D) right=true;
+        if(keycode== Input.Keys.W) movements[0]=true;
+        if(keycode== Input.Keys.A) movements[1]=true;
+        if(keycode== Input.Keys.S) movements[2]=true;
+        if(keycode== Input.Keys.D) movements[3]=true;
         onUpdate();
         return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        if(keycode== Input.Keys.W) up=false;
-        if(keycode== Input.Keys.S) down=false;
-        if(keycode== Input.Keys.A) left=false;
-        if(keycode== Input.Keys.D) right=false;
+        if(keycode== Input.Keys.W) movements[0]=false;
+        if(keycode== Input.Keys.A) movements[1]=false;
+        if(keycode== Input.Keys.S) movements[2]=false;
+        if(keycode== Input.Keys.D) movements[3]=false;
         onUpdate();
         return true;
     }
@@ -58,18 +58,21 @@ public abstract class InputHandler implements InputProcessor {
     }
 
     public boolean isLeft() {
-        return left;
+        return movements[1];
     }
 
     public boolean isUp() {
-        return up;
+        return movements[0];
     }
 
     public boolean isRight() {
-        return right;
+        return movements[3];
+    }
+    public boolean[] getMovement(){
+        return movements;
     }
 
     public boolean isDown() {
-        return down;
+        return movements[2];
     }
 }

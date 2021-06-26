@@ -4,7 +4,10 @@ import com.badlogic.gdx.*;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import dDev.tech.entities.SpaceCamera;
 import dDev.tech.map.SpaceWorld;
@@ -54,7 +57,8 @@ public class SpaceGame extends Game {
         font = new BitmapFont();
         fps=new TextFont(font,"FPS",0.05f,0.05f);
 
-        spaceWorld = new SpaceWorld(cam,viewport);
+        spaceWorld = new SpaceWorld();
+        spaceWorld.createViewWorld(cam,viewport);
 
 
 
@@ -78,5 +82,11 @@ public class SpaceGame extends Game {
         mapLayer.dispose();
 
         font.dispose();
+    }
+
+    public void updatePositions(Array<JsonValue> arr) {
+
+        gameScreen.player.interpolator.newPoint(arr.get(0).getFloat(0),arr.get(0).getFloat(1));
+
     }
 }

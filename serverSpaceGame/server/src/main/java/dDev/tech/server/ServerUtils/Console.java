@@ -1,4 +1,4 @@
-package dDev.tech.server;
+package dDev.tech.server.ServerUtils;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -28,18 +28,22 @@ public class Console extends Thread{
         }
 
     }
-    public static void log(String prefix,String message){
+    public synchronized static void log(String prefix,String message,boolean error){
+        if(!error){
+            System.out.println("\b\b["+prefix+"]: "+message);
+        }else{
+            System.err.println("\b\b["+prefix+"]: "+message);
+        }
 
-        System.out.println("\b\b["+prefix+"]: "+message);
         System.out.print("> ");
     }
-    public static void logError(String message){
-        log("ERROR",message);
+    public synchronized static void logError(String message){
+        log("ERROR",message,true);
     }
-    public static void logWarning(String message){
-        log("WARNING",message);
+    public synchronized static void logWarning(String message){
+        log("WARNING",message,false);
     }
-    public static void logInfo(String message){
-        log("INFO",message);
+    public synchronized static void logInfo(String message){
+        log("INFO",message,false);
     }
 }

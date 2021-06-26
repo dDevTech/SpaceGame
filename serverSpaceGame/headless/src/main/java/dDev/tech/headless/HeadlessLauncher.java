@@ -18,7 +18,7 @@ public class HeadlessLauncher {
 
 	private static HeadlessApplicationConfiguration getDefaultConfiguration() {
 		HeadlessApplicationConfiguration configuration = new HeadlessApplicationConfiguration();
-		configuration.updatesPerSecond = -1; // When this value is negative, SpaceGame#render() is never called.
+		configuration.updatesPerSecond = 1; // When this value is negative, SpaceGame#render() is never called.
 		return configuration;
 	}
 }

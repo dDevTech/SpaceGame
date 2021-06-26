@@ -9,4 +9,5 @@ dependencies {
 	api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
 	api "com.kotcrab.vis:vis-ui:$visUiVersion"
 	api "space.earlygrey:shapedrawer:$shapeDrawerVersion"
+
 }

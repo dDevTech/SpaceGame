@@ -11,103 +11,70 @@ import dDev.tech.map.Map;
 public class GameScreen implements Screen {
 
     private Map map;
-    private SpaceGame main;
+    private SpaceGame spaceGame;
 
-    private Player player;
+    public Player player;
     private InputHandler inputs;
 
     private float speed=3f;
 
 
-    public GameScreen(SpaceGame main){
+    public GameScreen(SpaceGame spaceGame){
         inputs = new InputHandler() {
             @Override
             public void onUpdate() {
-
-
+                spaceGame.getConnection().sendJson(inputs.getMovement());
             }
         };
         Gdx.input.setInputProcessor(inputs);
-        this.main = main;
+        this.spaceGame = spaceGame;
     }
 
     @Override
     public void show() {
+        spaceGame.fps.setPosition(-Gdx.graphics.getWidth()/4f,-Gdx.graphics.getHeight()/4f);
+        spaceGame.fps.setScale(2f);
 
+        spaceGame.UIText.setViewport(new ScreenViewport());
+        spaceGame.UIText.addActor( spaceGame.fps);
 
+        map = new Map("Map2.png", spaceGame.cam, spaceGame.spaceWorld);
+        spaceGame.mapLayer.addActor(map);
 
-
-
-        main.UIText.setViewport(new ScreenViewport());
-
-        main.fps.setPosition(-Gdx.graphics.getWidth()/4f,-Gdx.graphics.getHeight()/4f);
-
-        main.fps.setScale(2f);
-
-        main.UIText.addActor( main.fps);
-
-
-
-
-
-        map = new Map("Map2.png", main.cam,main.spaceWorld);
-        main.mapLayer.addActor(map);
-
-        player= new Player(main.spaceWorld);
-        player.setPhysicalPosition(150,150);
-        player.setMainPlayer(main.cam);
-        main.entityLayer.addActor(player);
-
-
-
-
-
-
-       // main.cam.position.x=0;
-       // main.cam.position.y=0;
+        player= new Player(spaceGame.spaceWorld,true);
+        player.setPhysicalPosition(2,2);
+        player.setMainPlayer(spaceGame.cam);
+        spaceGame.entityLayer.addActor(player);
 
     }
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor( 0.2f, 0.2f, 0.2f, 1 );
         Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );
-        if(inputs.isDown()&& !inputs.isUp())  main.cam.position.y-=speed*Gdx.graphics.getDeltaTime();
-        if(inputs.isUp()&& !inputs.isDown())  main.cam.position.y+=speed*Gdx.graphics.getDeltaTime();
-        if(inputs.isRight()&& !inputs.isLeft())  main.cam.position.x+=speed*Gdx.graphics.getDeltaTime();
-        if(inputs.isLeft()&& !inputs.isRight())  main.cam.position.x-=speed*Gdx.graphics.getDeltaTime();
-
-
-        main.mapLayer.getViewport().apply();
-
-
-        main.spaceWorld.renderLight(main.cam);
-        main.entityLayer.draw();
-        main.mapLayer.draw();
-        main.spaceWorld.debugRenderer.render(main.spaceWorld.world, main.mapLayer.getViewport().getCamera().combined);
-
-
-        //Gdx.app.log("RENDER",main.cam.position.toString());
-        main.fps.updateText("FPS: "+Gdx.graphics.getFramesPerSecond());
 
 
 
-        main.UIText.getViewport().apply();
-        main.UIText.draw();
-        main.spaceWorld.updatePhysics();
+        spaceGame.mapLayer.getViewport().apply();
+
+        spaceGame.spaceWorld.renderLights(spaceGame.cam);
+        spaceGame.mapLayer.draw();
+        spaceGame.entityLayer.draw();
+        spaceGame.spaceWorld.debugRenderer.render(spaceGame.spaceWorld.world, spaceGame.mapLayer.getViewport().getCamera().combined);
+
+        spaceGame.fps.updateText("FPS: "+Gdx.graphics.getFramesPerSecond());
+
+        spaceGame.UIText.getViewport().apply();
+        spaceGame.UIText.draw();
+        spaceGame.spaceWorld.updatePhysics(Gdx.graphics.getDeltaTime());
 
 
     }
     @Override
     public void resize(int width, int height) {
-
-
-
-
     }
 
     @Override
     public void pause() {
-
     }
 
     @Override
@@ -123,7 +90,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void dispose() {
-        main.spaceWorld.dispose();
+        spaceGame.spaceWorld.dispose();
 
     }
 }

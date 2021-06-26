@@ -12,26 +12,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Solved bug physics renderer not displaying correctly. Resize everything to lower sizes">
-      <change afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/MenuDebug.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/FilterLayer.java" afterDir="false" />
+    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="New lights. Physics added in client and server. Server can now display graphics of the map">
+      <change afterPath="$PROJECT_DIR$/serverSpaceGame/server/Map2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Callback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Sender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/constants/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PhysicStepper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PosInterpolator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/inputs/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/inputs/InputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SettingsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SettingsGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/SpaceWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SpaceWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/map/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/ui/TextFont.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/ui/TextFont.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/ServerView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serverSpaceGame/headless/src/main/java/dDev/tech/headless/HeadlessLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/headless/src/main/java/dDev/tech/headless/HeadlessLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/lwjgl3/src/main/java/dDev/tech/lwjgl3/Lwjgl3Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/lwjgl3/src/main/java/dDev/tech/lwjgl3/Lwjgl3Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/shared/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/inputs/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/inputs/InputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SpaceWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SpaceWorld.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +103,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -107,6 +112,12 @@
     <option name="BRANCH" value="develop" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="e4958ff765aeffba389a3359609d438df5ce4514" />
@@ -133,7 +144,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="E:/Installations/AndroidSDK" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/serverSpaceGame/server" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.117145896" />
@@ -142,17 +153,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\server" />
       <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\core\src\main\java\dDev\tech" />
       <recent name="D:\Programacion\GameLibGDX\SpaceGame\assets" />
       <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\server\map" />
       <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\server\src\main\java\dDev\tech" />
-      <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\server\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programacion\GameLibGDX\SpaceGame" />
     </key>
   </component>
-  <component name="RunManager" selected="Multirun.WebServer">
+  <component name="RunManager" selected="Multirun.ServerScreenClient">
     <configuration name="android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="SpaceGame.android" />
       <option name="DEPLOY" value="true" />
@@ -210,6 +221,15 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="dDev.tech.desktop.DesktopLauncher" />
       <module name="SpaceGame.desktop.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Headless" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="dDev.tech.headless.HeadlessLauncher" />
+      <module name="SpaceGame.serverSpaceGame.headless.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -324,6 +344,7 @@
     </configuration>
     <list>
       <item itemvalue="Android App.android" />
+      <item itemvalue="Application.Headless" />
       <item itemvalue="Application.Server_screenview" />
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.Client" />
@@ -385,7 +406,29 @@
       <workItem from="1624120416016" duration="1290000" />
       <workItem from="1624171621724" duration="4578000" />
       <workItem from="1624176502617" duration="446000" />
-      <workItem from="1624186640637" duration="1051000" />
+      <workItem from="1624186640637" duration="1238000" />
+      <workItem from="1624188084877" duration="35000" />
+      <workItem from="1624188350127" duration="755000" />
+      <workItem from="1624202708974" duration="509000" />
+      <workItem from="1624214465279" duration="234000" />
+      <workItem from="1624219290698" duration="17000" />
+      <workItem from="1624266792553" duration="3684000" />
+      <workItem from="1624343966212" duration="4630000" />
+      <workItem from="1624349838468" duration="532000" />
+      <workItem from="1624356115980" duration="3658000" />
+      <workItem from="1624371302627" duration="347000" />
+      <workItem from="1624431377075" duration="3899000" />
+      <workItem from="1624435313792" duration="3010000" />
+      <workItem from="1624455376981" duration="1256000" />
+      <workItem from="1624456682754" duration="75000" />
+      <workItem from="1624456863005" duration="391000" />
+      <workItem from="1624459313054" duration="157000" />
+      <workItem from="1624478685858" duration="1991000" />
+      <workItem from="1624520610691" duration="4047000" />
+      <workItem from="1624607230233" duration="2419000" />
+      <workItem from="1624609841225" duration="537000" />
+      <workItem from="1624610664244" duration="139000" />
+      <workItem from="1624723658332" duration="1700000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1623702726044</created>
@@ -471,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624115693065</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="New lights. Physics added in client and server. Server can now display graphics of the map">
+      <created>1624187825546</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1624187825546</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +582,18 @@
     <MESSAGE value="Bug solved html  GdxDefinition" />
     <MESSAGE value="New illuminations and world physics system. Not working" />
     <MESSAGE value="Solved bug physics renderer not displaying correctly. Resize everything to lower sizes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solved bug physics renderer not displaying correctly. Resize everything to lower sizes" />
+    <MESSAGE value="New lights. Physics added in client and server. Server can now display graphics of the map" />
+    <option name="LAST_COMMIT_MESSAGE" value="New lights. Physics added in client and server. Server can now display graphics of the map" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -67,6 +67,7 @@ public class SpaceWorld{
     public void attach(Body body){
         p2.setStaticLight(false);
         p2.attachToBody(body);
+
     }
     public void renderLights(OrthographicCamera camera){
         rayHandler.setCombinedMatrix(camera);

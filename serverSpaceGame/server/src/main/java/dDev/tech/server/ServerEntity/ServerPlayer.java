@@ -4,19 +4,20 @@ package dDev.tech.server.ServerEntity;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.World;
+
 import com.badlogic.gdx.utils.Array;
+import com.github.czyzby.websocket.serialization.SerializationException;
+import com.github.czyzby.websocket.serialization.Transferable;
+import com.github.czyzby.websocket.serialization.impl.Deserializer;
 import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
 
+import com.github.czyzby.websocket.serialization.impl.Serializer;
 import dDev.tech.entities.Player;
 import dDev.tech.map.SpaceWorld;
 import dDev.tech.tools.Shaper;
 import org.java_websocket.WebSocket;
 
-public class ServerPlayer extends Player {
+public class ServerPlayer extends Player{
     private WebSocket socket;
     private SpaceWorld world;
     private JsonSerializer serialiazer;
@@ -26,11 +27,11 @@ public class ServerPlayer extends Player {
     public boolean left;
     public boolean right;
     public static int idIncrement = 0;
-    public int id = 0;
+
 
 
     public float resistantForce = 0.4f;
-    public float motorForce = 2f;
+    public float motorForce = 4f;
     public float maxSpeed = 50f;
 
     public ServerPlayer(WebSocket socket, SpaceWorld world){
@@ -60,7 +61,14 @@ public class ServerPlayer extends Player {
         updateMovement(xdir,ydir);
 
     }
+    public ServerPlayer(){
 
+    }
+    private ServerPlayer(float x,float y,int id){
+        setX(x);
+        setY(y);
+        this.id = id;
+    }
     @Override
     public void draw(Batch batch, float parentAlpha) {
         if(shaper==null)shaper= new Shaper(batch);
@@ -116,15 +124,4 @@ public class ServerPlayer extends Player {
 
 
     }
-    public void sendMessage(byte[]bytes){
-        socket.send(bytes);
-    }
-    public void sendMessage(Object o){
-        socket.send(serialiazer.serialize(o));
-    }
-    public void showMessage(String msg){
-        System.out.println(msg);
-    }
-
-
 }

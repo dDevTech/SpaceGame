@@ -1,8 +1,14 @@
 package dDev.tech.server.Game;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.Array;
 import dDev.tech.constants.Constants;
 import dDev.tech.map.SpaceWorld;
+import dDev.tech.serialized.PlayerData;
+import dDev.tech.serialized.PlayerID;
+import dDev.tech.serialized.PlayersData;
+import dDev.tech.server.ServerNet.Server;
 import dDev.tech.server.ServerUtils.Console;
 import dDev.tech.server.ServerNet.ServerLauncher;
 import dDev.tech.server.ServerEntity.ServerPlayer;
@@ -26,12 +32,14 @@ public class Game extends Thread{
     public void setPlayers(Map<WebSocket, ServerPlayer> players) {
         this.players = players;
     }
-
+    private Server server;
     private  Map<WebSocket, ServerPlayer> players;
     public dDev.tech.map.Map map;
     public PhysicStepper physicSteps;
     SpaceWorld world;
-    public Game(){
+    int counter = 0;
+    public Game(Server server){
+        this.server= server;
         players = Collections.synchronizedMap(new HashMap<>());
         world = new SpaceWorld();
         //TODO create map with file buffered image only created with graphics
@@ -44,8 +52,21 @@ public class Game extends Thread{
     }
     public void addPlayerToGame(WebSocket conn){
         ServerPlayer player = new ServerPlayer(conn,world);
-        player.setPhysicalPosition(2,2);
+        conn.send(server.manual.serialize(new PlayerID(player.id)));
+        player.setPhysicalPosition(2+counter,2);
         players.put(conn,player);
+        counter++;
+
+        PlayerData[]array = new PlayerData[players.size()];
+        int c=0;
+        for(ServerPlayer playerID:players.values()){
+            array[c]=new PlayerData(new Vector2(playerID.getX(),playerID.getY()),playerID.id);
+            c++;
+        }
+
+        conn.send(server.manual.serialize(new PlayersData(array)));
+
+        server.sendAllExcept(new PlayerData(new Vector2(player.getX(),player.getY()),player.id),players.get(conn));
         if(ServerLauncher.USING_GRAPHICS)ServerLauncher.callback.onAddPlayer(player,conn);
         Console.logInfo("Client added to game");
     }

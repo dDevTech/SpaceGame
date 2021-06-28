@@ -4,15 +4,17 @@ import com.badlogic.gdx.*;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import dDev.tech.entities.Player;
 import dDev.tech.entities.SpaceCamera;
 import dDev.tech.map.SpaceWorld;
 import dDev.tech.net.ServerConnection;
+import dDev.tech.serialized.PlayerPhysicData;
+import dDev.tech.serialized.Locations;
 import dDev.tech.ui.TextFont;
+
+import java.util.*;
 
 
 public class SpaceGame extends Game {
@@ -20,12 +22,27 @@ public class SpaceGame extends Game {
      GameScreen gameScreen;
      Menu menuScreen;
      TextFont fps;
-     Stage mapLayer;
-     Stage entityLayer;
+    public Map<Integer,Player> players = Collections.synchronizedMap(new HashMap<>());
+    public Stage getMapLayer() {
+        return mapLayer;
+    }
+
+    Stage mapLayer;
+
+    public Stage getEntityLayer() {
+        return entityLayer;
+    }
+    Stage mainPlayerLayer;
+    Stage entityLayer;
      Stage UIText;
-     SpaceCamera cam;
+     public SpaceCamera cam;
      SpriteBatch batch;
-     SpaceWorld spaceWorld;
+
+    public SpaceWorld getSpaceWorld() {
+        return spaceWorld;
+    }
+
+    SpaceWorld spaceWorld;
      BitmapFont font;
      FitViewport viewport;
     public ServerConnection getConnection() {
@@ -41,6 +58,11 @@ public class SpaceGame extends Game {
         menuScreen = new Menu(this);
         setScreen(menuScreen);
     }
+
+    public Stage getMainPlayerLayer() {
+        return mainPlayerLayer;
+    }
+
     @Override
     public void create() {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
@@ -51,6 +73,7 @@ public class SpaceGame extends Game {
         viewport=new FitViewport(16,9,cam);
         mapLayer = new Stage(viewport);
         entityLayer = new Stage(viewport);
+        mainPlayerLayer = new Stage(viewport);
         UIText = new Stage();
 
         batch = new SpriteBatch();
@@ -84,9 +107,11 @@ public class SpaceGame extends Game {
         font.dispose();
     }
 
-    public void updatePositions(Array<JsonValue> arr) {
+    public void updatePositions(Locations locs) {
+        for(PlayerPhysicData loc:locs.getLocations()){
+            players.get(loc.id).interpolator.newPoint(loc.x,loc.y);
+        }
 
-        gameScreen.player.interpolator.newPoint(arr.get(0).getFloat(0),arr.get(0).getFloat(1));
 
     }
 }

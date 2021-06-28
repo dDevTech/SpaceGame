@@ -22,8 +22,18 @@ public class ServerView extends Game {
      GameDebug gameScreen;
      MenuDebug menuScreen;
      TextFont fps;
-     Stage mapLayer;
-     Stage entityLayer;
+
+    public Stage getMapLayer() {
+        return mapLayer;
+    }
+
+    Stage mapLayer;
+
+    public Stage getEntityLayer() {
+        return entityLayer;
+    }
+
+    Stage entityLayer;
      Stage UIText;
      SpaceCamera cam;
      SpriteBatch batch;

@@ -7,11 +7,15 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.github.czyzby.websocket.serialization.SerializationException;
+import com.github.czyzby.websocket.serialization.Transferable;
+import com.github.czyzby.websocket.serialization.impl.Deserializer;
+import com.github.czyzby.websocket.serialization.impl.Serializer;
 import dDev.tech.map.SpaceWorld;
 import dDev.tech.tools.PosInterpolator;
 import dDev.tech.tools.Shaper;
 
-public class Player extends  Entity {
+public class Player extends  Entity{
     public Shaper shaper;
     public float size =0.5f;
     private Camera camera;
@@ -19,23 +23,39 @@ public class Player extends  Entity {
     public Body body;
     public int xdir;
     public int ydir;
-
+    public int id = 0;
 
 
     public PosInterpolator interpolator;
     public Player(SpaceWorld world,boolean lighting){
 
         this(world);
-        PointLight light = new PointLight(world.rayHandler,256);
-        light.attachToBody(body);
-        light.setDistance(15f);
-        light.setSoftnessLength(2f);
-        light.setColor(new Color(1f,1f,1f,0.7f));
-        light.setSoft(true);
-        interpolator = new PosInterpolator();
+        if(lighting){
+            PointLight light = new PointLight(world.rayHandler,256);
+            light.attachToBody(body);
+            light.setDistance(12f);
+            light.setSoftnessLength(0f);
+            light.setColor(new Color(0.2f,0.2f,0.2f,1f));
+            light.setSoft(true);
+        }
+
+
+
 
     }
     public Player(SpaceWorld world){
+        interpolator = new PosInterpolator();
+        createBody(world);
+    }
+    public Player(){
+
+    }
+    public Player(SpaceWorld world, float x, float y, int id,boolean lighting){
+        this(world,lighting);
+        setPhysicalPosition(x,y);
+        this.id = id;
+    }
+    public void createBody(SpaceWorld world){
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         bodyDef.position.set(0, 0);
@@ -50,6 +70,7 @@ public class Player extends  Entity {
         circle.dispose();
     }
 
+
     public void setPhysicalPosition(float x,float y){
 
         super.setX(x);
@@ -59,13 +80,14 @@ public class Player extends  Entity {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        if(shaper==null)shaper= new Shaper(batch);
+        if(shaper==null) shaper= new Shaper(batch);
         if(mainPlayer){
             body.setAwake(true);
             body.setActive(true);
+            camera.position.x = getX();
+            camera.position.y = getY();
         }
-        camera.position.x = getX();
-        camera.position.y = getY();
+
 
         interpolator.updatePos(Gdx.graphics.getDeltaTime());
 

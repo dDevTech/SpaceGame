@@ -41,10 +41,6 @@ public class GameScreen implements Screen {
         map = new Map("Map2.png", spaceGame.cam, spaceGame.spaceWorld);
         spaceGame.mapLayer.addActor(map);
 
-        player= new Player(spaceGame.spaceWorld,true);
-        player.setPhysicalPosition(2,2);
-        player.setMainPlayer(spaceGame.cam);
-        spaceGame.entityLayer.addActor(player);
 
     }
     @Override
@@ -55,11 +51,12 @@ public class GameScreen implements Screen {
 
 
         spaceGame.mapLayer.getViewport().apply();
-
+        spaceGame.entityLayer.draw();
         spaceGame.spaceWorld.renderLights(spaceGame.cam);
         spaceGame.mapLayer.draw();
-        spaceGame.entityLayer.draw();
-        spaceGame.spaceWorld.debugRenderer.render(spaceGame.spaceWorld.world, spaceGame.mapLayer.getViewport().getCamera().combined);
+        spaceGame.mainPlayerLayer.draw();
+
+      //  spaceGame.spaceWorld.debugRenderer.render(spaceGame.spaceWorld.world, spaceGame.mapLayer.getViewport().getCamera().combined);
 
         spaceGame.fps.updateText("FPS: "+Gdx.graphics.getFramesPerSecond());
 

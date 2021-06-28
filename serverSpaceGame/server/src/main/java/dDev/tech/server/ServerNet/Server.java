@@ -4,7 +4,14 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
+import com.github.czyzby.websocket.serialization.impl.ManualSerializer;
 import dDev.tech.constants.Constants;
+
+import dDev.tech.constants.Packets;
+import dDev.tech.entities.Player;
+import dDev.tech.serialized.PlayerData;
+import dDev.tech.serialized.PlayerID;
+import dDev.tech.server.ServerEntity.ServerPlayer;
 import dDev.tech.server.ServerUtils.Console;
 import dDev.tech.server.Game.Game;
 import dDev.tech.server.Game.Sender;
@@ -22,12 +29,16 @@ import java.nio.ByteBuffer;
 public class Server extends WebSocketServer{
     public Game game;
     private JsonSerializer serializer;
-    int playersToStart =1;
+    int playersToStart =2;
     public Sender sender;
+    public ManualSerializer manual ;
     public Server(){
         super(new InetSocketAddress("localhost", Constants.PORT));
         serializer = new JsonSerializer();
-        game= new Game();
+        manual = new ManualSerializer();
+
+        Packets.register(manual);
+        game= new Game(this);
 
 
     }
@@ -41,7 +52,7 @@ public class Server extends WebSocketServer{
         if(!ServerLauncher.USING_GRAPHICS) {
             game.start();
         }
-        sender = new Sender(game);
+        sender = new Sender(this);
         sender.start();
         Console.logInfo("Game started");
     }
@@ -70,6 +81,11 @@ public class Server extends WebSocketServer{
 
         game.addPlayerToGame(conn);
         if(game.getPlayers().size()>=playersToStart){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             startGame();
         }
 
@@ -104,6 +120,22 @@ public class Server extends WebSocketServer{
 
     @Override
     public void onStart() {
+
+    }
+
+    public void sendAllExcept(Object o, ServerPlayer player){
+
+        byte[]data=manual.serialize(o);
+        System.out.println(o.getClass());
+        for(WebSocket socket:game.getPlayers().keySet()){
+            if(player != game.getPlayers().get(socket)){
+                socket.send(data);
+            }
+
+        }
+        System.out.println("finished");
+
+       // broadcast(manualSerializer.serialize(o));
 
     }
 }

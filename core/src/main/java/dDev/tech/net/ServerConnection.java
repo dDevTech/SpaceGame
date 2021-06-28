@@ -2,7 +2,6 @@ package dDev.tech.net;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
@@ -10,8 +9,15 @@ import com.github.czyzby.websocket.WebSocket;
 import com.github.czyzby.websocket.WebSocketListener;
 import com.github.czyzby.websocket.WebSockets;
 import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
+import com.github.czyzby.websocket.serialization.impl.ManualSerializer;
 import dDev.tech.constants.Constants;
+import dDev.tech.constants.Packets;
+import dDev.tech.entities.Player;
 import dDev.tech.screens.SpaceGame;
+import dDev.tech.serialized.Locations;
+import dDev.tech.serialized.PlayerData;
+import dDev.tech.serialized.PlayerID;
+import dDev.tech.serialized.PlayersData;
 
 public class ServerConnection {
 
@@ -21,13 +27,21 @@ public class ServerConnection {
         return socket;
     }
 
+    public int getIdClient() {
+        return idClient;
+    }
+
+    private int idClient = -1;
     public JsonSerializer getSerializer() {
         return serializer;
     }
 
     private WebSocket socket = null;
     private JsonSerializer serializer = new JsonSerializer();
+    private ManualSerializer manual;
     public ServerConnection(SpaceGame core){
+        manual= new ManualSerializer();
+        Packets.register(manual);
         this.core = core;
         Gdx.app.log("NET","Creating connection");
 
@@ -51,32 +65,22 @@ public class ServerConnection {
 
             @Override
             public boolean onMessage(WebSocket webSocket, String packet) {
-                //  System.out.println("NEW MESSAGE");
-                //  System.out.println(packet);
 
-                Object o=new JsonSerializer().deserialize(packet);
+                JsonReader read = new JsonReader();
+                JsonValue base=read.parse(packet);
+                String settings=base.get(0).name;
 
-                if(o instanceof Array){
+                System.out.println(settings);
+                if(settings.equals("settings")){
 
-                    Array<JsonValue>arr=(Array<JsonValue>)o;
-                    core.updatePositions(arr);
-
-                }else{
-                    JsonReader read = new JsonReader();
-                    JsonValue base=read.parse(packet);
-                    String settings=base.get(0).name;
-
-                    System.out.println(settings);
-                    if(settings.equals("settings")){
-
-                        Gdx.app.postRunnable(new Runnable() {
-                            @Override
-                            public void run() {
-                                core.setGameScreen();
-                            }
-                        });
-                    }
+                    Gdx.app.postRunnable(new Runnable() {
+                        @Override
+                        public void run() {
+                            core.setGameScreen();
+                        }
+                    });
                 }
+
 
 
 
@@ -85,7 +89,62 @@ public class ServerConnection {
 
             @Override
             public boolean onMessage(WebSocket webSocket, byte[] packet) {
-                return false;
+                //System.out.println("New message");
+
+                Object o =manual.deserialize(packet);
+               // System.out.println(o.getClass());
+                if(o instanceof Locations){
+                    core.updatePositions((Locations)o);
+                }
+                if(o instanceof PlayerData){
+                    PlayerData data = (PlayerData) o;
+
+                    Player player =new Player(core.getSpaceWorld(),data.getPosition().x,data.getPosition().y, data.getId(),false);
+                    core.players.put(player.id,player);
+                    Gdx.app.postRunnable(new Runnable() {
+                        @Override
+                        public void run() {
+                            core.getEntityLayer().addActor(player);
+                        }
+                    });
+                }
+                if(o instanceof PlayerID){
+                    System.out.println("New player id registered");
+                    PlayerID id = (PlayerID) o;
+                    idClient = id.getId();
+                }
+                if(o instanceof PlayersData){
+                    PlayerData[] data = ((PlayersData) o).getArray();
+                    for(PlayerData playerData:data){
+                        boolean lighting = false;
+                        if(playerData.getId()==idClient){
+                            lighting=true;
+                        }
+                        Player player =new Player(core.getSpaceWorld(),playerData.getPosition().x,playerData.getPosition().y, playerData.getId(),lighting);
+                        core.players.put(player.id,player);
+                        if(playerData.getId()==idClient){
+                            player.setMainPlayer(core.cam);
+                            Gdx.app.postRunnable(new Runnable() {
+                                @Override
+                                public void run() {
+                                    core.getMainPlayerLayer().addActor(player);
+                                }
+                            });
+                        }else{
+                            Gdx.app.postRunnable(new Runnable() {
+                                @Override
+                                public void run() {
+                                    core.getEntityLayer().addActor(player);
+                                }
+                            });
+                        }
+
+
+
+                    }
+                }
+                return true;
+
             }
 
             @Override
@@ -94,6 +153,7 @@ public class ServerConnection {
                 return false;
             }
         });
+
         socket.connect();
 
 

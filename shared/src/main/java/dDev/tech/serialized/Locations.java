@@ -7,14 +7,17 @@ import com.github.czyzby.websocket.serialization.Transferable;
 import com.github.czyzby.websocket.serialization.impl.Deserializer;
 import com.github.czyzby.websocket.serialization.impl.Serializer;
 
+import java.util.Arrays;
+
 public class Locations implements Transferable {
 
     private PlayerPhysicData[]locations ;
-    public Locations(PlayerPhysicData[]locations){
-        this.locations = locations;
-    }
 
     public Locations() {
+    }
+
+    public Locations(PlayerPhysicData[]locations){
+        this.locations = locations;
     }
 
     public PlayerPhysicData[] getLocations() {
@@ -35,5 +38,12 @@ public class Locations implements Transferable {
                 return new PlayerPhysicData[size];
             }
         }));
+    }
+
+    @Override
+    public String toString() {
+        return "Locations{" +
+                "locations=" + Arrays.toString(locations) +
+                '}';
     }
 }

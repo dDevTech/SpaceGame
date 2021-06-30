@@ -12,24 +12,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Working entity interpolation of player movement. Physics also working fine">
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/constants/Packets.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/Locations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/PlayerData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/PlayerID.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/PlayerPhysicData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/PlayersData.java" afterDir="false" />
+    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Working player system. Interacting with lights. Client interpolation&#10;Multiple Clients">
+      <change afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerEntity/ServerMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PhysicFilters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/ui/GameProgressBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerEntity/ServerPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerEntity/ServerPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/constants/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SpaceWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SpaceWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SettingsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SettingsGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/Locations.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/Locations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/PlayerPhysicData.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/PlayerPhysicData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PosInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PosInterpolator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,9 +149,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="E:/Installations/AndroidSDK" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/serverSpaceGame/server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Aiapps" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.117145896" />
     <property name="project.structure.side.proportion" value="0.31761009" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
@@ -164,7 +168,7 @@
       <recent name="D:\Programacion\GameLibGDX\SpaceGame" />
     </key>
   </component>
-  <component name="RunManager" selected="Multirun.CrossPlatform">
+  <component name="RunManager" selected="Multirun.2ClientsServer">
     <configuration name="android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="SpaceGame.android" />
       <option name="DEPLOY" value="true" />
@@ -249,6 +253,17 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="dDev.tech.lwjgl3.Lwjgl3Launcher" />
       <module name="SpaceGame.serverSpaceGame.lwjgl3.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -426,7 +441,18 @@
       <workItem from="1624862242964" duration="637000" />
       <workItem from="1624863141990" duration="8164000" />
       <workItem from="1624872128610" duration="938000" />
-      <workItem from="1624873164704" duration="48000" />
+      <workItem from="1624873164704" duration="732000" />
+      <workItem from="1624889698635" duration="1519000" />
+      <workItem from="1624905649248" duration="1193000" />
+      <workItem from="1624906862649" duration="279000" />
+      <workItem from="1624907284147" duration="281000" />
+      <workItem from="1624907600799" duration="225000" />
+      <workItem from="1624951297798" duration="8007000" />
+      <workItem from="1624976705588" duration="18000" />
+      <workItem from="1624976797360" duration="647000" />
+      <workItem from="1624987530004" duration="581000" />
+      <workItem from="1624988549183" duration="374000" />
+      <workItem from="1625044263224" duration="2861000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1623702726044</created>
@@ -526,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624725832574</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Working player system. Interacting with lights. Client interpolation&#10;Multiple Clients">
+      <created>1624873233947</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1624873233947</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +622,8 @@
     <MESSAGE value="Solved bug physics renderer not displaying correctly. Resize everything to lower sizes" />
     <MESSAGE value="New lights. Physics added in client and server. Server can now display graphics of the map" />
     <MESSAGE value="Working entity interpolation of player movement. Physics also working fine" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working entity interpolation of player movement. Physics also working fine" />
+    <MESSAGE value="Working player system. Interacting with lights. Client interpolation&#10;Multiple Clients" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working player system. Interacting with lights. Client interpolation&#10;Multiple Clients" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -598,16 +632,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

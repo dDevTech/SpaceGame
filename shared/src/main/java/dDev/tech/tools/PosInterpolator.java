@@ -14,8 +14,8 @@ public class PosInterpolator {
     private float timeLerp = Constants.TIME_SENDS;
     private float currentTime = 0f;
     private float timeSends = timeLerp;
-    private float newTime=timeLerp;
-    private float beforeTime=0;
+    private long newTime=(long)(Constants.TIME_SENDS*1000f);
+    private long beforeTime=(long)(Constants.TIME_SENDS*1000f);
     public void setInitial(float x,float y){
         interPrev = new Vector2(x,y);
         interPos = new Vector2(x,y);
@@ -23,8 +23,8 @@ public class PosInterpolator {
     }
     public void newPoint(float x,float y){
         beforeTime = newTime;
-        newTime = System.currentTimeMillis()/1000f;
-        timeSends = newTime-beforeTime;
+        newTime = System.currentTimeMillis();
+        timeSends = (newTime-beforeTime)/1000f;
 
         if(timeSends ==0f) timeSends = timeLerp;
 
@@ -35,10 +35,8 @@ public class PosInterpolator {
 
     }
     public void updatePos(float deltaTime){
-        float alpha =currentTime/timeSends;
-
-
-        position = new Vector2(interPrev.x,interPrev.y).lerp(interPos,alpha);
+        double alpha =currentTime/timeSends;
+        position = new Vector2(interPrev.x,interPrev.y).lerp(interPos,(float)alpha);
         currentTime+=deltaTime;
 
     }

@@ -55,7 +55,7 @@ public class GameDebug implements Screen {
         if(inputs.isLeft()&& !inputs.isRight())  main.cam.position.x-=speed*Gdx.graphics.getDeltaTime();
 
         main.mapLayer.getViewport().apply();
-
+        main.mapLayer.act();
         main.spaceWorld.renderLights(main.cam);
         main.entityLayer.draw();
         main.mapLayer.draw();

@@ -51,9 +51,12 @@ public class GameScreen implements Screen {
 
 
         spaceGame.mapLayer.getViewport().apply();
+
         spaceGame.entityLayer.draw();
         spaceGame.spaceWorld.renderLights(spaceGame.cam);
+
         spaceGame.mapLayer.draw();
+        spaceGame.mapLayer.act(delta);
         spaceGame.mainPlayerLayer.draw();
 
       //  spaceGame.spaceWorld.debugRenderer.render(spaceGame.spaceWorld.world, spaceGame.mapLayer.getViewport().getCamera().combined);

@@ -1,6 +1,5 @@
 package dDev.tech.server.Game;
 
-import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
 import com.github.czyzby.websocket.serialization.impl.ManualSerializer;
 import dDev.tech.constants.Constants;
 import dDev.tech.constants.Packets;
@@ -13,15 +12,16 @@ import org.java_websocket.WebSocket;
 import java.util.Map;
 
 public class Sender extends Thread{
-    private int delay =  (int)(Constants.TIME_SENDS*1000f);
+    private long delay ;
 
-    private JsonSerializer serializer =new JsonSerializer();
+
     private Server server;
-    private ManualSerializer manual = new ManualSerializer();
+    private ManualSerializer serializer = new ManualSerializer();
     public Sender(Server server){
-        Packets.register(manual);
+        Packets.register(serializer);
 
         this.server = server;
+        delay=  (long)(Constants.TIME_SENDS*1000f);
     }
 
     @Override
@@ -40,9 +40,10 @@ public class Sender extends Thread{
                 playerLocations[count] = location;
                 count++;
             }
+            byte[]bytes= serializer.serialize(new Locations(playerLocations));
 
             for(Map.Entry<WebSocket, ServerPlayer> entry:server.game.getPlayers().entrySet()){
-                entry.getKey().send(manual.serialize(new Locations(playerLocations)));
+                entry.getKey().send(bytes);
             }
 
             try {

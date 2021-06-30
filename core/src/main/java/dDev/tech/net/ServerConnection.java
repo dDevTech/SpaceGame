@@ -94,7 +94,9 @@ public class ServerConnection {
                 Object o =manual.deserialize(packet);
                // System.out.println(o.getClass());
                 if(o instanceof Locations){
+
                     core.updatePositions((Locations)o);
+
                 }
                 if(o instanceof PlayerData){
                     PlayerData data = (PlayerData) o;

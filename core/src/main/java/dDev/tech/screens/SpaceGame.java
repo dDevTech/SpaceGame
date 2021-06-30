@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.kotcrab.vis.ui.VisUI;
 import dDev.tech.entities.Player;
 import dDev.tech.entities.SpaceCamera;
 import dDev.tech.map.SpaceWorld;
@@ -22,7 +23,7 @@ public class SpaceGame extends Game {
      GameScreen gameScreen;
      Menu menuScreen;
      TextFont fps;
-    public Map<Integer,Player> players = Collections.synchronizedMap(new HashMap<>());
+    public Map<Integer,Player> players = new HashMap<>();
     public Stage getMapLayer() {
         return mapLayer;
     }
@@ -66,11 +67,11 @@ public class SpaceGame extends Game {
     @Override
     public void create() {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
-
+        VisUI.load(VisUI.SkinScale.X2);
 
         setMenuScreen();
         cam = new SpaceCamera();
-        viewport=new FitViewport(16,9,cam);
+        viewport=new FitViewport(160,90,cam);
         mapLayer = new Stage(viewport);
         entityLayer = new Stage(viewport);
         mainPlayerLayer = new Stage(viewport);
@@ -108,6 +109,7 @@ public class SpaceGame extends Game {
     }
 
     public void updatePositions(Locations locs) {
+
         for(PlayerPhysicData loc:locs.getLocations()){
             players.get(loc.id).interpolator.newPoint(loc.x,loc.y);
         }

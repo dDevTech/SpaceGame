@@ -8,6 +8,7 @@ import dDev.tech.map.SpaceWorld;
 import dDev.tech.serialized.PlayerData;
 import dDev.tech.serialized.PlayerID;
 import dDev.tech.serialized.PlayersData;
+import dDev.tech.server.ServerEntity.ServerMap;
 import dDev.tech.server.ServerNet.Server;
 import dDev.tech.server.ServerUtils.Console;
 import dDev.tech.server.ServerNet.ServerLauncher;
@@ -42,9 +43,9 @@ public class Game extends Thread{
         this.server= server;
         players = Collections.synchronizedMap(new HashMap<>());
         world = new SpaceWorld();
-        //TODO create map with file buffered image only created with graphics
+
         if(!ServerLauncher.USING_GRAPHICS){
-            map = new dDev.tech.map.Map("serverSpaceGame/server/Map2.png",world,true);
+            map = new ServerMap("serverSpaceGame/server/Map2.png",world,true);
         }
         physicSteps = new PhysicStepper();
 
@@ -53,9 +54,9 @@ public class Game extends Thread{
     public void addPlayerToGame(WebSocket conn){
         ServerPlayer player = new ServerPlayer(conn,world);
         conn.send(server.manual.serialize(new PlayerID(player.id)));
-        player.setPhysicalPosition(2+counter,2);
+        player.setPhysicalPosition(20+counter,20);
         players.put(conn,player);
-        counter++;
+        counter+=10;
 
         PlayerData[]array = new PlayerData[players.size()];
         int c=0;

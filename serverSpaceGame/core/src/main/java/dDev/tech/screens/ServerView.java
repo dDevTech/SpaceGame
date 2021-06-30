@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
+import com.kotcrab.vis.ui.VisUI;
 import dDev.tech.server.ServerUtils.Callback;
 import dDev.tech.entities.SpaceCamera;
 import dDev.tech.map.SpaceWorld;
@@ -53,6 +54,7 @@ public class ServerView extends Game {
     }
     @Override
     public void create() {
+        VisUI.load(VisUI.SkinScale.X2);
         ServerLauncher.USING_GRAPHICS = true;
         ServerLauncher.callback = new Callback() {
             @Override
@@ -67,7 +69,7 @@ public class ServerView extends Game {
 
 
         cam = new SpaceCamera();
-        viewport=new FitViewport(16,9,cam);
+        viewport=new FitViewport(160,90,cam);
         mapLayer = new Stage(viewport);
         entityLayer = new Stage(viewport);
         UIText = new Stage();

@@ -30,9 +30,9 @@ public class ServerPlayer extends Player{
 
 
 
-    public float resistantForce = 0.4f;
-    public float motorForce = 4f;
-    public float maxSpeed = 50f;
+    public float resistantForce = 4f;
+    public float motorForce = 40f;
+    public float maxSpeed = 500f;
 
     public ServerPlayer(WebSocket socket, SpaceWorld world){
         super(world);

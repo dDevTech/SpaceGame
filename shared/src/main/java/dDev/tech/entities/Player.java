@@ -12,12 +12,13 @@ import com.github.czyzby.websocket.serialization.Transferable;
 import com.github.czyzby.websocket.serialization.impl.Deserializer;
 import com.github.czyzby.websocket.serialization.impl.Serializer;
 import dDev.tech.map.SpaceWorld;
+import dDev.tech.tools.PhysicFilters;
 import dDev.tech.tools.PosInterpolator;
 import dDev.tech.tools.Shaper;
 
 public class Player extends  Entity{
     public Shaper shaper;
-    public float size =0.5f;
+    public float size =5f;
     private Camera camera;
     private boolean mainPlayer=false;
     public Body body;
@@ -33,10 +34,14 @@ public class Player extends  Entity{
         if(lighting){
             PointLight light = new PointLight(world.rayHandler,256);
             light.attachToBody(body);
-            light.setDistance(12f);
+            light.setDistance(120f);
             light.setSoftnessLength(0f);
             light.setColor(new Color(0.2f,0.2f,0.2f,1f));
-            light.setSoft(true);
+            light.setSoft(false);
+            Filter f = new Filter();
+            f.categoryBits = PhysicFilters.CATEGORY_LIGHT_PLAYER;
+            f.maskBits = (short) (PhysicFilters.CATEGORY_MAP);
+            light.setContactFilter(f);
         }
 
 
@@ -66,7 +71,10 @@ public class Player extends  Entity{
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = circle;
         Fixture fixture = body.createFixture(fixtureDef);
-        // fixtureDef.filter.categoryBits = (short)FilterLayer.PLAYER.ordinal();
+        Filter f = new Filter();
+        f.categoryBits = PhysicFilters.CATEGORY_PLAYER;
+        f.maskBits = (short) (PhysicFilters.CATEGORY_MAP|PhysicFilters.CATEGORY_PLAYER);
+        fixture.setFilterData(f);
         circle.dispose();
     }
 
@@ -96,10 +104,7 @@ public class Player extends  Entity{
         setPhysicalPosition(pos.x,pos.y);
         shaper.getShaper().setColor(new Color(0,109/255f,209/255f,1f));
         shaper.getShaper().filledPolygon(getX(),getY(),100,size/2,0);
-        shaper.getShaper().setColor(new Color(1f,0f,0f,1f));
-        shaper.getShaper().filledPolygon(interpolator.getInterPos().x,interpolator.getInterPos().y,100,size/5,0);
-        shaper.getShaper().setColor(new Color(0f,1f,0f,1f));
-        shaper.getShaper().filledPolygon(interpolator.getInterPrev().x,interpolator.getInterPrev().y,100,size/5,0);
+
     }
     public void setMainPlayer(Camera camera){
         mainPlayer=true;

@@ -9,31 +9,32 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import dDev.tech.tools.Shaper;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class Map extends Actor implements Disposable {
 
     private Pixmap mapImage;
-    private BufferedImage serverImage;
-    private Tile[][]map;
+
+    public Tile[][]map;
     private Shaper shaper;
 
     private float perspectiveInclination=0.2f;
-    private OrthographicCamera camera;
+    public OrthographicCamera camera;
     public Map(String imagePath,OrthographicCamera camera,SpaceWorld space){
         this(imagePath, space);
         this.camera = camera;
         prepare3d();
         Gdx.app.log("MAP","Map 3d done");
     }
+    public Map(){
+
+    }
     public Map(String imagePath,SpaceWorld space){
+
         Gdx.app.log("MAP","Loading map...");
         mapImage = new Pixmap(Gdx.files.internal(imagePath));
 
@@ -50,27 +51,7 @@ public class Map extends Actor implements Disposable {
         Gdx.app.log("MAP","Map loaded");
 
     }
-    public Map(String imagePath,SpaceWorld space,boolean server){
 
-        try {
-            serverImage = ImageIO.read(new File(imagePath));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        map = new Tile[serverImage.getHeight()][serverImage.getWidth()];
-        for(int i=0;i<serverImage.getHeight();i++){
-            for(int j=0;j<serverImage.getWidth();j++){
-                Color c=new Color(serverImage.getRGB(i,j));
-                Tile.TILE_TYPE type= Tile.TILE_TYPE.BLOCK;
-                if(c.toIntBits()==Color.WHITE.toIntBits())type= Tile.TILE_TYPE.NONE;
-                Tile tile = new Tile(j*SettingsGame.tileSize,i*SettingsGame.tileSize,SettingsGame.tileSize,c, type,space,camera);
-                map[i][j]= tile;
-            }
-        }
-
-
-    }
     @Override
     public void draw(Batch batch, float parentAlpha) {
 
@@ -124,6 +105,9 @@ public class Map extends Actor implements Disposable {
 
                         shaper.getShaper().line(vertices[0], vertices[1], 0.025f);
                     }
+
+
+
                 }
 
             }
@@ -131,6 +115,7 @@ public class Map extends Actor implements Disposable {
 
 
     }
+
     private void prepare3d(){
         //3d effect
         for(int i=map.length-1;i>=0;i--) {
@@ -188,6 +173,15 @@ public class Map extends Actor implements Disposable {
     }
     @Override
     public void act(float delta) {
+        for(int y=0;y<map.length;y++){
+            for(int x=0;x<map[0].length;x++){
+                if(map[y][x].getType()!= Tile.TILE_TYPE.NONE) {
+
+
+                }
+
+            }
+        }
 
     }
 

@@ -2,17 +2,28 @@ package dDev.tech.map;
 
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.List;
+import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
+import com.kotcrab.vis.ui.VisUI;
+import com.kotcrab.vis.ui.widget.VisProgressBar;
 import dDev.tech.entities.FilterLayer;
+import dDev.tech.tools.PhysicFilters;
 
 public class Tile {
     private  float x;
     private  float y;
     private  float size;
+    private float health = 0f;
+    private float maxHealth = 0f;
+
 
     public Array<Vector2[]> getTriangles() {
         return triangles;
@@ -33,11 +44,13 @@ public class Tile {
         return type;
     }
 
-    public static enum TILE_TYPE  {NONE, BLOCK};
+    public enum TILE_TYPE  {NONE, BLOCK};
     private TILE_TYPE type = TILE_TYPE.NONE;
     private Color color;
 
     private BodyDef groundBodyDef;
+
+
     public Tile(float x, float y, float size, Color color, TILE_TYPE type, SpaceWorld space, Camera camera){
 
         this.x = x;
@@ -58,8 +71,13 @@ public class Tile {
             FixtureDef def = new FixtureDef();
             def.shape = groundBox;
             Fixture fixture =groundBody.createFixture(def);
-            def.filter.categoryBits = (short)FilterLayer.BLOCK.ordinal();
+
             groundBox.dispose();
+            Filter f = new Filter();
+            f.categoryBits = PhysicFilters.CATEGORY_MAP;
+            f.maskBits = (short) (PhysicFilters.CATEGORY_LIGHT_PLAYER | PhysicFilters.CATEGORY_PLAYER);
+            fixture.setFilterData(f);
+
         }
 
     }

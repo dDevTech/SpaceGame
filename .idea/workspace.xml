@@ -13,27 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Working player system. Interacting with lights. Client interpolation&#10;Multiple Clients">
-      <change afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerEntity/ServerMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PhysicFilters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/ui/GameProgressBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerEntity/ServerPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerEntity/ServerPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/constants/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SettingsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SettingsGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/Locations.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/Locations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/PlayerPhysicData.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/PlayerPhysicData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PosInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PosInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,12 +130,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="E:/Installations/AndroidSDK" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Aiapps" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.117145896" />
     <property name="project.structure.side.proportion" value="0.31761009" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -253,17 +234,6 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="dDev.tech.lwjgl3.Lwjgl3Launcher" />
       <module name="SpaceGame.serverSpaceGame.lwjgl3.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -453,6 +423,7 @@
       <workItem from="1624987530004" duration="581000" />
       <workItem from="1624988549183" duration="374000" />
       <workItem from="1625044263224" duration="2861000" />
+      <workItem from="1625416124403" duration="330000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1623702726044</created>

@@ -13,14 +13,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Working player system. Interacting with lights. Client interpolation&#10;Multiple Clients">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/settings.gradle" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\diego\.android\avd\Pixel_4a_API_30.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -122,10 +125,13 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="VirtualDevicePath@C:\Users\diego\.android\avd\Pixel_4a_API_30.avd" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-09-06T09:55:16.435312400Z" />
     <property name="ResourceManagerPrefKey.ResourceType" value="DRAWABLE" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SelectDeploymentTargetsDialog.selectedDevices" value="VirtualDevicePath@C:\Users\diego\.android\avd\Pixel_4a_API_30.avd" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="E:/Installations/AndroidSDK" />
@@ -149,7 +155,7 @@
       <recent name="D:\Programacion\GameLibGDX\SpaceGame" />
     </key>
   </component>
-  <component name="RunManager" selected="Multirun.2ClientsServer">
+  <component name="RunManager" selected="Android App.android">
     <configuration name="android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="SpaceGame.android" />
       <option name="DEPLOY" value="true" />
@@ -158,6 +164,7 @@
       <option name="ARTIFACT_NAME" value="" />
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
@@ -424,6 +431,11 @@
       <workItem from="1624988549183" duration="374000" />
       <workItem from="1625044263224" duration="2861000" />
       <workItem from="1625416124403" duration="330000" />
+      <workItem from="1630921342290" duration="157000" />
+      <workItem from="1630921513410" duration="396000" />
+      <workItem from="1630921975699" duration="1424000" />
+      <workItem from="1630923521010" duration="199000" />
+      <workItem from="1630925624343" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1623702726044</created>

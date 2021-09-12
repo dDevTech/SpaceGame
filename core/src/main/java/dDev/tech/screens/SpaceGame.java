@@ -6,11 +6,14 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.github.czyzby.websocket.serialization.Transferable;
 import com.kotcrab.vis.ui.VisUI;
+import dDev.tech.entities.Entity;
 import dDev.tech.entities.Player;
 import dDev.tech.entities.SpaceCamera;
 import dDev.tech.map.SpaceWorld;
 import dDev.tech.net.ServerConnection;
+import dDev.tech.serialized.EntityPacket;
 import dDev.tech.serialized.PlayerPhysicData;
 import dDev.tech.serialized.Locations;
 import dDev.tech.ui.TextFont;
@@ -23,7 +26,8 @@ public class SpaceGame extends Game {
      GameScreen gameScreen;
      Menu menuScreen;
      TextFont fps;
-    public Map<Integer,Player> players = new HashMap<>();
+    public Map<Integer, Player> players = new HashMap<>();
+    public Map<Integer, Entity> entities = new HashMap<>();
     public Stage getMapLayer() {
         return mapLayer;
     }
@@ -81,7 +85,7 @@ public class SpaceGame extends Game {
         font = new BitmapFont();
         fps=new TextFont(font,"FPS",0.05f,0.05f);
 
-        spaceWorld = new SpaceWorld();
+        spaceWorld = new SpaceWorld(cam);
         spaceWorld.createViewWorld(cam,viewport);
 
 
@@ -114,6 +118,12 @@ public class SpaceGame extends Game {
             players.get(loc.id).interpolator.newPoint(loc.x,loc.y);
         }
 
+
+    }
+    public void onEntityMessage(EntityPacket packet) {
+        Entity entity = entities.get(packet.ID);
+        Transferable data = packet.packetData;
+        entity.onPacketReceivedInClient(data);
 
     }
 }

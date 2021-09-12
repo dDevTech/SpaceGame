@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import dDev.tech.entities.Entity;
 import dDev.tech.inputs.InputHandler;
 import dDev.tech.map.Map;
 import dDev.tech.tools.PhysicStepper;
@@ -69,9 +70,12 @@ public class GameDebug implements Screen {
 
         ServerLauncher.game.updateWorld();
         main.spaceWorld.updatePhysics(Gdx.graphics.getDeltaTime());
+
+
         ServerLauncher.game.getWorld().deltaTime = Gdx.graphics.getDeltaTime();
 
     }
+
     @Override
     public void resize(int width, int height) {
 

@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import dDev.tech.entities.Player;
+import dDev.tech.entities.PlayerTT;
 import dDev.tech.inputs.InputHandler;
 import dDev.tech.map.Map;
 
@@ -13,7 +13,7 @@ public class GameScreen implements Screen {
     private Map map;
     private SpaceGame spaceGame;
 
-    public Player player;
+    public PlayerTT player;
     private InputHandler inputs;
 
     private float speed=3f;

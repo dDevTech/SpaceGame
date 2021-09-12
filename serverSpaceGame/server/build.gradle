@@ -15,7 +15,7 @@ dependencies {
 	implementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
 	api "com.playfab:server-sdk:$playfabServer"
 	implementation project(':shared')
-	implementation "org.java-websocket:Java-WebSocket:1.5.1"
+
 
 }
 

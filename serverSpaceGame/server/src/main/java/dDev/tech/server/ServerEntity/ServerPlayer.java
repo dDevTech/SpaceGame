@@ -1,3 +1,4 @@
+/*
 package dDev.tech.server.ServerEntity;
 
 
@@ -6,18 +7,14 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 
 import com.badlogic.gdx.utils.Array;
-import com.github.czyzby.websocket.serialization.SerializationException;
-import com.github.czyzby.websocket.serialization.Transferable;
-import com.github.czyzby.websocket.serialization.impl.Deserializer;
 import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
 
-import com.github.czyzby.websocket.serialization.impl.Serializer;
-import dDev.tech.entities.Player;
+import dDev.tech.entities.PlayerTT;
 import dDev.tech.map.SpaceWorld;
 import dDev.tech.tools.Shaper;
 import org.java_websocket.WebSocket;
 
-public class ServerPlayer extends Player{
+public class ServerPlayer extends PlayerTT {
     private WebSocket socket;
     private SpaceWorld world;
     private JsonSerializer serialiazer;
@@ -36,6 +33,7 @@ public class ServerPlayer extends Player{
 
     public ServerPlayer(WebSocket socket, SpaceWorld world){
         super(world);
+
         this.socket = socket;
         this.world = world;
         serialiazer = new JsonSerializer();
@@ -86,11 +84,10 @@ public class ServerPlayer extends Player{
     public void updateMovement(int xdir,int ydir){
         this.xdir = xdir;
         this.ydir = ydir;
-
     }
 
     public void updateMotorMovement(){
-       //System.out.println(accumulatedTime+" "+body.getLinearVelocity());
+        //System.out.println(accumulatedTime+" "+body.getLinearVelocity());
         if (Math.abs(body.getLinearVelocity().x) >= maxSpeed) {
 
             if (body.getLinearVelocity().x >= 0 && xdir < 0) {
@@ -125,3 +122,4 @@ public class ServerPlayer extends Player{
 
     }
 }
+*/

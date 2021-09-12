@@ -23,8 +23,7 @@ public class ServerLauncher {
 		Console.logInfo("Server started");
 
 		Console console = new Console();
-		Console.addCommand("s",(String[]arg)->{
-
+		Console.addCommand("s",(String[]args)->{
 			server.startGame();
 		});
 		console.start();

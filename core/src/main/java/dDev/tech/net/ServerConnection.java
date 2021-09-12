@@ -2,22 +2,21 @@ package dDev.tech.net;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.reflect.ClassReflection;
+import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.github.czyzby.websocket.WebSocket;
 import com.github.czyzby.websocket.WebSocketListener;
 import com.github.czyzby.websocket.WebSockets;
 import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
 import com.github.czyzby.websocket.serialization.impl.ManualSerializer;
 import dDev.tech.constants.Constants;
-import dDev.tech.constants.Packets;
-import dDev.tech.entities.Player;
+
+import dDev.tech.entities.Entity;
+import dDev.tech.entities.Packets;
 import dDev.tech.screens.SpaceGame;
-import dDev.tech.serialized.Locations;
-import dDev.tech.serialized.PlayerData;
-import dDev.tech.serialized.PlayerID;
-import dDev.tech.serialized.PlayersData;
+import dDev.tech.serialized.*;
 
 public class ServerConnection {
 
@@ -92,16 +91,45 @@ public class ServerConnection {
                 //System.out.println("New message");
 
                 Object o =manual.deserialize(packet);
+
+                if(o instanceof EntityCreate){
+                    EntityCreate entityCreate = (EntityCreate) o;
+                    try {
+
+                        Class<Entity> entityClass = ClassReflection.forName(entityCreate.getClassName());
+                        Entity entity = ClassReflection.newInstance(entityClass);
+                        entity.setID(entityCreate.getID());
+                        entity.setOnClient();
+                        Gdx.app.log("ENTITY","Received new instance request create: "+entityCreate.getClassName());
+
+                        core.entities.put(entityCreate.getID(),entity);
+                        Gdx.app.postRunnable(new Runnable() {
+                            @Override
+                            public void run() {
+                                core.getEntityLayer().addActor(entity);
+                            }
+                        });
+                        entity.onCreateEntityInClient(core.getSpaceWorld());
+
+                    } catch (ReflectionException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(o instanceof EntityPacket){
+                    EntityPacket entityPacket  = (EntityPacket) o;
+                    core.onEntityMessage(entityPacket);
+
+                }
                // System.out.println(o.getClass());
                 if(o instanceof Locations){
 
                     core.updatePositions((Locations)o);
 
                 }
-                if(o instanceof PlayerData){
+                /*if(o instanceof PlayerData){
                     PlayerData data = (PlayerData) o;
 
-                    Player player =new Player(core.getSpaceWorld(),data.getPosition().x,data.getPosition().y, data.getId(),false);
+                    PlayerTT player =new PlayerTT(core.getSpaceWorld(),data.getPosition().x,data.getPosition().y, data.getId(),false);
                     core.players.put(player.id,player);
                     Gdx.app.postRunnable(new Runnable() {
                         @Override
@@ -122,7 +150,7 @@ public class ServerConnection {
                         if(playerData.getId()==idClient){
                             lighting=true;
                         }
-                        Player player =new Player(core.getSpaceWorld(),playerData.getPosition().x,playerData.getPosition().y, playerData.getId(),lighting);
+                        PlayerTT player =new PlayerTT(core.getSpaceWorld(),playerData.getPosition().x,playerData.getPosition().y, playerData.getId(),lighting);
                         core.players.put(player.id,player);
                         if(playerData.getId()==idClient){
                             player.setMainPlayer(core.cam);
@@ -144,7 +172,7 @@ public class ServerConnection {
 
 
                     }
-                }
+                }*/
                 return true;
 
             }

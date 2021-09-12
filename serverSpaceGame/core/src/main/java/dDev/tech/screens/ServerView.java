@@ -10,10 +10,11 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import com.kotcrab.vis.ui.VisUI;
 import dDev.tech.server.ServerUtils.Callback;
+import dDev.tech.entities.Player;
 import dDev.tech.entities.SpaceCamera;
 import dDev.tech.map.SpaceWorld;
 import dDev.tech.server.ServerNet.ServerLauncher;
-import dDev.tech.server.ServerEntity.ServerPlayer;
+
 import dDev.tech.ui.TextFont;
 import org.java_websocket.WebSocket;
 
@@ -58,7 +59,7 @@ public class ServerView extends Game {
         ServerLauncher.USING_GRAPHICS = true;
         ServerLauncher.callback = new Callback() {
             @Override
-            public void onAddPlayer(ServerPlayer player, WebSocket conn) {
+            public void onAddPlayer(Player player, WebSocket conn) {
                 entityLayer.addActor(player);
                 System.out.println( ServerLauncher.game.getPlayers());
             }

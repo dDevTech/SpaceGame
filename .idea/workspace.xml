@@ -12,18 +12,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Working player system. Interacting with lights. Client interpolation&#10;Multiple Clients">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="&#10;Fix  for gradle subproject serverSpaceGame">
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/PlayerTT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/EntityCreate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/EntityPacket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/IDGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/html/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerEntity/ServerPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerEntity/ServerPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/ServerLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/ServerLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerUtils/Callback.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerUtils/Callback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/shared/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/Shared.gwt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/Shared.gwt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/constants/Packets.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Packets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/SpaceCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/SpaceCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SpaceWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SpaceWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PhysicFilters.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PhysicFilters.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\diego\.android\avd\Pixel_4a_API_30.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -85,6 +107,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -144,6 +167,9 @@
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="dDev.tech.entities" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\server" />
       <recent name="D:\Programacion\GameLibGDX\SpaceGame\serverSpaceGame\core\src\main\java\dDev\tech" />
@@ -155,7 +181,7 @@
       <recent name="D:\Programacion\GameLibGDX\SpaceGame" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.android">
+  <component name="RunManager" selected="Multirun.ServerScreenClient">
     <configuration name="android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="SpaceGame.android" />
       <option name="DEPLOY" value="true" />
@@ -298,7 +324,7 @@
       <runConfiguration name="Client1" type="Application" />
       <method v="2" />
     </configuration>
-    <configuration name="AndroidServer" type="Multirun" separateTabs="false" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0.0">
+    <configuration name="AndroidServer" type="Multirun" singleton="false" separateTabs="false" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0.0">
       <runConfiguration name="Server" type="Application" />
       <runConfiguration name="android" type="Android App" />
       <method v="2" />
@@ -435,7 +461,22 @@
       <workItem from="1630921513410" duration="396000" />
       <workItem from="1630921975699" duration="1424000" />
       <workItem from="1630923521010" duration="199000" />
-      <workItem from="1630925624343" duration="19000" />
+      <workItem from="1630925624343" duration="32000" />
+      <workItem from="1631131165970" duration="88000" />
+      <workItem from="1631131658989" duration="854000" />
+      <workItem from="1631165491260" duration="2479000" />
+      <workItem from="1631168132585" duration="1877000" />
+      <workItem from="1631174209832" duration="19000" />
+      <workItem from="1631181463850" duration="1000" />
+      <workItem from="1631270881004" duration="38000" />
+      <workItem from="1631345699420" duration="4484000" />
+      <workItem from="1631350777772" duration="155000" />
+      <workItem from="1631360527408" duration="5015000" />
+      <workItem from="1631371669516" duration="784000" />
+      <workItem from="1631390740166" duration="258000" />
+      <workItem from="1631435519959" duration="3742000" />
+      <workItem from="1631457795680" duration="2586000" />
+      <workItem from="1631472076348" duration="1211000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1623702726044</created>
@@ -542,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624873233947</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="&#10;Fix  for gradle subproject serverSpaceGame">
+      <created>1630925651274</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1630925651274</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +654,8 @@
     <MESSAGE value="New lights. Physics added in client and server. Server can now display graphics of the map" />
     <MESSAGE value="Working entity interpolation of player movement. Physics also working fine" />
     <MESSAGE value="Working player system. Interacting with lights. Client interpolation&#10;Multiple Clients" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working player system. Interacting with lights. Client interpolation&#10;Multiple Clients" />
+    <MESSAGE value="&#10;Fix  for gradle subproject serverSpaceGame" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;Fix  for gradle subproject serverSpaceGame" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

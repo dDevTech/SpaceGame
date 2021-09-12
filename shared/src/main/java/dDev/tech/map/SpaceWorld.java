@@ -3,31 +3,35 @@ package dDev.tech.map;
 import box2dLight.PointLight;
 import box2dLight.RayHandler;
 import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.Filter;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import dDev.tech.constants.Constants;
-import dDev.tech.entities.FilterLayer;
 import dDev.tech.tools.PhysicStepper;
 
-import javax.swing.text.View;
+
 
 public class SpaceWorld{
     public  World world;
     public Box2DDebugRenderer debugRenderer;
     public RayHandler rayHandler;
     public   PointLight p2;
+    public Camera camera;
     public float deltaTime=0;
     private PhysicStepper stepper;
+    public SpaceWorld(Camera camera){
+        this();
+        this.camera = camera;
+
+    }
     public SpaceWorld(){
+
         world = new World(new Vector2(0,0),true);
         stepper = new PhysicStepper();
     }
+
     public void createViewWorld(Camera camera,Viewport viewport){
         debugRenderer = new Box2DDebugRenderer();
 

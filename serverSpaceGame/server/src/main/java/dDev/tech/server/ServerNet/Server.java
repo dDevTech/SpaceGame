@@ -1,17 +1,15 @@
 package dDev.tech.server.ServerNet;
 
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
 import com.github.czyzby.websocket.serialization.impl.ManualSerializer;
 import dDev.tech.constants.Constants;
 
-import dDev.tech.constants.Packets;
+import dDev.tech.entities.Packets;
 import dDev.tech.entities.Player;
-import dDev.tech.serialized.PlayerData;
-import dDev.tech.serialized.PlayerID;
-import dDev.tech.server.ServerEntity.ServerPlayer;
+import dDev.tech.serialized.EntityPacket;
+
 import dDev.tech.server.ServerUtils.Console;
 import dDev.tech.server.Game.Game;
 import dDev.tech.server.Game.Sender;
@@ -29,14 +27,13 @@ import java.nio.ByteBuffer;
 public class Server extends WebSocketServer{
     public Game game;
     private JsonSerializer serializer;
-    int playersToStart =2;
+    int playersToStart = 1;
     public Sender sender;
     public ManualSerializer manual ;
     public Server(){
-        super(new InetSocketAddress("localhost", Constants.PORT));
+        super(new InetSocketAddress(Constants.PORT));
         serializer = new JsonSerializer();
         manual = new ManualSerializer();
-
         Packets.register(manual);
         game= new Game(this);
 
@@ -48,7 +45,7 @@ public class Server extends WebSocketServer{
         System.out.println(json);
         System.out.println(game.getPlayers());
         broadcast(json);
-        //broadcast(json,game.getPlayers().keySet());
+
         if(!ServerLauncher.USING_GRAPHICS) {
             game.start();
         }
@@ -79,13 +76,9 @@ public class Server extends WebSocketServer{
     @Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
 
-        game.addPlayerToGame(conn);
+        game.addPlayerToGame(conn,new Player());
+        System.out.println("New client");
         if(game.getPlayers().size()>=playersToStart){
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             startGame();
         }
 
@@ -104,13 +97,19 @@ public class Server extends WebSocketServer{
     @Override
     public void onMessage(WebSocket conn, ByteBuffer message) {
 
-        Object o=serializer.deserialize(
+        Object o = serializer.deserialize(message.array());
+        if(o instanceof EntityPacket){
+            EntityPacket entityPacket  = (EntityPacket) o;
+            game.onEntityMessage(entityPacket);
+
+        }
+        /*Object o=serializer.deserialize(
                 message.array());
         System.out.println(o.getClass());
         if(o instanceof Array){
 
             game.getPlayers().get(conn).selectPlayerMovement((Array<Boolean>)o);
-        }
+        }*/
     }
 
     @Override
@@ -123,11 +122,11 @@ public class Server extends WebSocketServer{
 
     }
 
-    public void sendAllExcept(Object o, ServerPlayer player){
+    public void sendAllExcept(Object o, Player player){
 
         byte[]data=manual.serialize(o);
         System.out.println(o.getClass());
-        for(WebSocket socket:game.getPlayers().keySet()){
+        for(WebSocket socket:game.getPlayers().values()){
             if(player != game.getPlayers().get(socket)){
                 socket.send(data);
             }
@@ -138,4 +137,11 @@ public class Server extends WebSocketServer{
        // broadcast(manualSerializer.serialize(o));
 
     }
+    public void sendData(Object o){
+        byte[]data=manual.serialize(o);
+        for(WebSocket socket:game.getPlayers().values()){
+            socket.send(data);
+        }
+    }
+
 }

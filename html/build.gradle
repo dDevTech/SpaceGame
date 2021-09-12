@@ -50,6 +50,7 @@ dependencies {
 	implementation "com.badlogicgames.gdxpay:gdx-pay:$gdxPayVersion:sources"
 	implementation "com.badlogicgames.gdxpay:gdx-pay-client:$gdxPayVersion:sources"
 
+
 }
 
 import org.akhikhl.gretty.AppBeforeIntegrationTestTask

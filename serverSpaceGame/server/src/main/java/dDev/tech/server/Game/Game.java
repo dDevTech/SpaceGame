@@ -1,18 +1,17 @@
 package dDev.tech.server.Game;
 
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.Array;
+import com.github.czyzby.websocket.serialization.Transferable;
 import dDev.tech.constants.Constants;
+import dDev.tech.entities.Entity;
+import dDev.tech.entities.Player;
 import dDev.tech.map.SpaceWorld;
-import dDev.tech.serialized.PlayerData;
-import dDev.tech.serialized.PlayerID;
-import dDev.tech.serialized.PlayersData;
+import dDev.tech.serialized.*;
 import dDev.tech.server.ServerEntity.ServerMap;
 import dDev.tech.server.ServerNet.Server;
-import dDev.tech.server.ServerUtils.Console;
 import dDev.tech.server.ServerNet.ServerLauncher;
-import dDev.tech.server.ServerEntity.ServerPlayer;
+
+import dDev.tech.tools.IDGenerator;
 import dDev.tech.tools.PhysicStepper;
 import org.java_websocket.WebSocket;
 
@@ -26,15 +25,15 @@ public class Game extends Thread{
     private boolean running = true;
     public Stage mapLayer;
     public Stage entityLayer;
-    public Map<WebSocket, ServerPlayer> getPlayers() {
+    public Map<Integer, WebSocket> getPlayers() {
         return players;
     }
-
-    public void setPlayers(Map<WebSocket, ServerPlayer> players) {
+    public Map<Integer, Entity>entities;
+    public void setPlayers(Map<Integer, WebSocket> players) {
         this.players = players;
     }
     private Server server;
-    private  Map<WebSocket, ServerPlayer> players;
+    private  Map<Integer, WebSocket> players;
     public dDev.tech.map.Map map;
     public PhysicStepper physicSteps;
     SpaceWorld world;
@@ -42,6 +41,7 @@ public class Game extends Thread{
     public Game(Server server){
         this.server= server;
         players = Collections.synchronizedMap(new HashMap<>());
+        entities = Collections.synchronizedMap(new HashMap<>());
         world = new SpaceWorld();
 
         if(!ServerLauncher.USING_GRAPHICS){
@@ -51,11 +51,13 @@ public class Game extends Thread{
 
 
     }
-    public void addPlayerToGame(WebSocket conn){
-        ServerPlayer player = new ServerPlayer(conn,world);
+
+    /*public void addPlayerToGame(WebSocket conn){
+        Player player = new Player(world);
         conn.send(server.manual.serialize(new PlayerID(player.id)));
         player.setPhysicalPosition(20+counter,20);
         players.put(conn,player);
+        dDev.tech.entities.put(IDGenerator.assignID(),player);
         counter+=10;
 
         PlayerData[]array = new PlayerData[players.size()];
@@ -70,13 +72,13 @@ public class Game extends Thread{
         server.sendAllExcept(new PlayerData(new Vector2(player.getX(),player.getY()),player.id),players.get(conn));
         if(ServerLauncher.USING_GRAPHICS)ServerLauncher.callback.onAddPlayer(player,conn);
         Console.logInfo("Client added to game");
-    }
+    }*/
     private float accumulator;
     public void updateWorld(){
         accumulator += world.deltaTime;
         while (accumulator >= Constants.TIME_PLAYER_FORCES) {
-            for(Map.Entry<WebSocket, ServerPlayer> entry:players.entrySet()){
-                entry.getValue().updateMotorMovement();
+            for(Map.Entry<Integer, Entity> entry:entities.entrySet()){
+                entry.getValue().onUpdateInServer(world.deltaTime);
 
             }
             accumulator -= Constants.TIME_PLAYER_FORCES;
@@ -85,8 +87,6 @@ public class Game extends Thread{
     }
     @Override
     public void run() {
-
-
         while(running){
             long initial=System.currentTimeMillis();
             try {
@@ -106,4 +106,35 @@ public class Game extends Thread{
     public SpaceWorld getWorld() {
         return world;
     }
+
+    public void onEntityMessage(EntityPacket packet) {
+        Entity entity = entities.get(packet.ID);
+        Transferable data = packet.packetData;
+        entity.onPacketReceivedInServer(data);
+
+    }
+    public void addPlayerToGame(WebSocket conn,Player player){
+        int idEntity = IDGenerator.assignID();
+        player.setID(idEntity);
+
+        player.setOnServer();
+        entities.put(idEntity,player);
+        players.put(idEntity,conn);
+
+        server.sendData(new EntityCreate(player.getID(),player.getClass().getName()));
+        player.onCreateEntityInServer(server.game.entities, server.game.getWorld());
+        if(ServerLauncher.USING_GRAPHICS) ServerLauncher.callback.onAddPlayer(player,conn);
+    }
+    public void addEntityToGame(Entity entity){
+        int idEntity = IDGenerator.assignID();
+        entity.setID(idEntity);
+
+        entity.setOnServer();
+        entities.put(idEntity,entity);
+        server.sendData(new EntityCreate(entity.getID(),entity.getClass().getName()));
+        entity.createEntityInServer(server.game.entities, server.game.getWorld());
+
+    }
+
+
 }

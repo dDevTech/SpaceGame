@@ -122,7 +122,7 @@ public class Game extends Thread{
         players.put(idEntity,conn);
 
         server.sendData(new EntityCreate(player.getID(),player.getClass().getName()));
-        player.onCreateEntityInServer(server.game.entities, server.game.getWorld());
+        player.createEntityInServer(server.game.entities, server.game.getWorld());
         if(ServerLauncher.USING_GRAPHICS) ServerLauncher.callback.onAddPlayer(player,conn);
     }
     public void addEntityToGame(Entity entity){

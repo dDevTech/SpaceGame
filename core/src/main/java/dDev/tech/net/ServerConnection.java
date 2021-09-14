@@ -116,6 +116,7 @@ public class ServerConnection {
                     }
                 }
                 if(o instanceof EntityPacket){
+                    Gdx.app.log("ENTITY","New object received");
                     EntityPacket entityPacket  = (EntityPacket) o;
                     core.onEntityMessage(entityPacket);
 

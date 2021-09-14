@@ -44,6 +44,8 @@ public class Player extends Entity{
         f.maskBits = (short) (PhysicFilters.CATEGORY_MAP|PhysicFilters.CATEGORY_PLAYER);
         fixture.setFilterData(f);
         circle.dispose();
+
+        setPhysicalPosition(getX(),getY());
     }
 
     @Override
@@ -53,15 +55,17 @@ public class Player extends Entity{
             setX(body.getPosition().x);
             setY(body.getPosition().y);
         }else{
+
             if(mainPlayer){
                 body.setAwake(true);
                 body.setActive(true);
                 world.camera.position.x = getX();
                 world.camera.position.y = getY();
             }
-            interpolator.updatePos(Gdx.graphics.getDeltaTime());
-            Vector2 pos = interpolator.getPosition();
-            setPhysicalPosition(pos.x,pos.y);
+
+            //interpolator.updatePos(Gdx.graphics.getDeltaTime());
+            //Vector2 pos = interpolator.getPosition();
+            //setPhysicalPosition(pos.x,pos.y);
         }
         shaper.getShaper().setColor(new Color(0,109/255f,209/255f,1f));
         shaper.getShaper().filledPolygon(getX(),getY(),100,size/2,0);
@@ -81,6 +85,9 @@ public class Player extends Entity{
     public PosInterpolator interpolator;
     public int id = 0;
 
+    public Player(Vector2 position){
+        setPosition(position.x, position.y);
+    }
 
     @Override
     public void onCreateEntityInClient(SpaceWorld world) {
@@ -103,6 +110,10 @@ public class Player extends Entity{
 
     @Override
     public void onPacketReceivedInClient(Transferable packet) {
+        if(packet instanceof PlayerPhysicData){
+            PlayerPhysicData location = (PlayerPhysicData) packet;
+            setPhysicalPosition(location.x, location.y);
+        }
 
     }
 
@@ -148,13 +159,14 @@ public class Player extends Entity{
     }
 
     @Override
-    public Object[] onSendPacketToClients() {
+    public Transferable[] onSendPacketToClients() {
         if(isCreated()){
+
             PlayerPhysicData location = new PlayerPhysicData();
             location.setId(id);
             location.setX(body.getPosition().x);
             location.setY(body.getPosition().y);
-            return new Object[]{location};
+            return new Transferable[]{location};
         }
         return null;
 

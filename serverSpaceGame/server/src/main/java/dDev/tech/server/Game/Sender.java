@@ -1,10 +1,12 @@
 package dDev.tech.server.Game;
 
+import com.github.czyzby.websocket.serialization.Transferable;
 import com.github.czyzby.websocket.serialization.impl.ManualSerializer;
 import dDev.tech.constants.Constants;
 import dDev.tech.entities.Packets;
 import dDev.tech.entities.Entity;
 
+import dDev.tech.serialized.EntityPacket;
 import dDev.tech.server.ServerNet.Server;
 
 import java.util.Map;
@@ -28,10 +30,13 @@ public class Sender extends Thread{
         while(true){
 
             for(Map.Entry<Integer, Entity> entry:server.game.entities.entrySet()){
-                Object[]items = entry.getValue().onSendPacketToClients();
+                Transferable[]items = entry.getValue().onSendPacketToClients();
+
                 if(items!=null){
-                    for(Object o :items){
-                        server.sendData(o);
+
+                    for(Transferable o :items){
+                        EntityPacket packet = Packets.buildPackage(entry.getValue(),o);
+                        server.sendData(packet);
                     }
                 }
 

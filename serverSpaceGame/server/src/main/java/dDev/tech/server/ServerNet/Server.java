@@ -1,5 +1,6 @@
 package dDev.tech.server.ServerNet;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
@@ -76,7 +77,7 @@ public class Server extends WebSocketServer{
     @Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
 
-        game.addPlayerToGame(conn,new Player());
+        game.addPlayerToGame(conn,new Player(new Vector2(25,25)));
         System.out.println("New client");
         if(game.getPlayers().size()>=playersToStart){
             startGame();

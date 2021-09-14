@@ -24,6 +24,7 @@ public abstract class Entity extends Actor implements Disposable {
 
     public void createEntityInServer(Map<Integer,Entity> entities, SpaceWorld world){
         created=true;
+
         onCreateEntityInServer(entities,world);
     }
     public abstract void onDispose();
@@ -32,7 +33,7 @@ public abstract class Entity extends Actor implements Disposable {
     public abstract void onPacketReceivedInClient(Transferable packet);
     public abstract void onPacketReceivedInServer(Transferable packet);
     public abstract void onUpdateInServer(float deltaTime);
-    public abstract Object[] onSendPacketToClients();
+    public abstract Transferable[] onSendPacketToClients();
     public void setPhysicalPosition(float x,float y){
         setX(x);
         setY(y);

@@ -13,33 +13,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="&#10;Fix  for gradle subproject serverSpaceGame">
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/PlayerTT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/EntityCreate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/EntityPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/IDGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/TransferableV2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/html/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/GameDebug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/core/src/main/java/dDev/tech/screens/ServerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerEntity/ServerPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerEntity/ServerPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/ServerLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/ServerLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerUtils/Callback.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerUtils/Callback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/shared/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/Shared.gwt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/Shared.gwt.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/constants/Packets.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Packets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/SpaceCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/SpaceCamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SpaceWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/SpaceWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/map/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PhysicFilters.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PhysicFilters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/EntityPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/EntityPacket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,8 +89,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -124,7 +106,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="e4958ff765aeffba389a3359609d438df5ce4514" />
+        <entry key="$PROJECT_DIR$" value="f89ff027d8579476424480941278f29606c12a77" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -374,6 +356,7 @@
         <item itemvalue="Gradle.SpaceGame" />
         <item itemvalue="Gradle.SpaceGame" />
         <item itemvalue="Gradle.SpaceGame" />
+        <item itemvalue="Gradle.SpaceGame" />
       </list>
     </recent_temporary>
   </component>
@@ -477,6 +460,8 @@
       <workItem from="1631435519959" duration="3742000" />
       <workItem from="1631457795680" duration="2586000" />
       <workItem from="1631472076348" duration="1211000" />
+      <workItem from="1631553449974" duration="3210000" />
+      <workItem from="1631637445493" duration="27000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1623702726044</created>
@@ -601,19 +586,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -655,6 +628,7 @@
     <MESSAGE value="Working entity interpolation of player movement. Physics also working fine" />
     <MESSAGE value="Working player system. Interacting with lights. Client interpolation&#10;Multiple Clients" />
     <MESSAGE value="&#10;Fix  for gradle subproject serverSpaceGame" />
+    <MESSAGE value="New client server system for entities. Now the are in one only file shared with client and server to customize everything and send messages easily from server to client and client server" />
     <option name="LAST_COMMIT_MESSAGE" value="&#10;Fix  for gradle subproject serverSpaceGame" />
   </component>
   <component name="XDebuggerManager">
@@ -664,6 +638,26 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Game.java</url>
+          <line>133</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -28,6 +28,14 @@ public class Player extends Entity{
     public Shaper shaper;
     public float size =5f;
 
+    public boolean isMainPlayer() {
+        return mainPlayer;
+    }
+
+    public void setMainPlayer(boolean mainPlayer) {
+        this.mainPlayer = mainPlayer;
+    }
+
     public void createBody(SpaceWorld world){
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -81,7 +89,7 @@ public class Player extends Entity{
     }
     //---------------------------------CLIENT---------------------------------------
 
-    private boolean mainPlayer=true;
+    private boolean mainPlayer=false;
     public PosInterpolator interpolator;
     public int id = 0;
 
@@ -94,17 +102,19 @@ public class Player extends Entity{
         this.world = world;
         interpolator = new PosInterpolator();
         createBody(world);
+        if(isMainPlayer()){
+            PointLight light = new PointLight(world.rayHandler,256);
+            light.attachToBody(body);
+            light.setDistance(120f);
+            light.setSoftnessLength(0f);
+            light.setColor(new Color(0.2f,0.2f,0.2f,1f));
+            light.setSoft(false);
+            Filter f = new Filter();
+            f.categoryBits = PhysicFilters.CATEGORY_LIGHT_PLAYER;
+            f.maskBits = (short) (PhysicFilters.CATEGORY_MAP);
+            light.setContactFilter(f);
 
-        PointLight light = new PointLight(world.rayHandler,256);
-        light.attachToBody(body);
-        light.setDistance(120f);
-        light.setSoftnessLength(0f);
-        light.setColor(new Color(0.2f,0.2f,0.2f,1f));
-        light.setSoft(false);
-        Filter f = new Filter();
-        f.categoryBits = PhysicFilters.CATEGORY_LIGHT_PLAYER;
-        f.maskBits = (short) (PhysicFilters.CATEGORY_MAP);
-        light.setContactFilter(f);
+        }
 
     }
 

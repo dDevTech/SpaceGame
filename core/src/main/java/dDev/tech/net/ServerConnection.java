@@ -15,6 +15,7 @@ import dDev.tech.constants.Constants;
 
 import dDev.tech.entities.Entity;
 import dDev.tech.entities.Packets;
+import dDev.tech.entities.Player;
 import dDev.tech.screens.SpaceGame;
 import dDev.tech.serialized.*;
 
@@ -94,6 +95,7 @@ public class ServerConnection {
 
                 if(o instanceof EntityCreate){
                     EntityCreate entityCreate = (EntityCreate) o;
+                    System.out.println(entityCreate.getClassName());
                     try {
 
                         Class<Entity> entityClass = ClassReflection.forName(entityCreate.getClassName());
@@ -109,6 +111,12 @@ public class ServerConnection {
                                 core.getEntityLayer().addActor(entity);
                             }
                         });
+
+                        if(entity instanceof Player){
+                            if(entity.getID()==idClient){
+                                ((Player)entity).setMainPlayer(true);
+                            }
+                        }
                         entity.onCreateEntityInClient(core.getSpaceWorld());
 
                     } catch (ReflectionException e) {
@@ -116,9 +124,14 @@ public class ServerConnection {
                     }
                 }
                 if(o instanceof EntityPacket){
-                    Gdx.app.log("ENTITY","New object received");
+                    //Gdx.app.log("ENTITY","New object received");
                     EntityPacket entityPacket  = (EntityPacket) o;
-                    core.onEntityMessage(entityPacket);
+                    Gdx.app.postRunnable(new Runnable() {
+                        @Override
+                        public void run() {
+                            core.onEntityMessage(entityPacket);
+                        }
+                    });
 
                 }
                // System.out.println(o.getClass());
@@ -138,12 +151,13 @@ public class ServerConnection {
                             core.getEntityLayer().addActor(player);
                         }
                     });
-                }
+                }*/
                 if(o instanceof PlayerID){
                     System.out.println("New player id registered");
                     PlayerID id = (PlayerID) o;
                     idClient = id.getId();
                 }
+                /*
                 if(o instanceof PlayersData){
                     PlayerData[] data = ((PlayersData) o).getArray();
                     for(PlayerData playerData:data){

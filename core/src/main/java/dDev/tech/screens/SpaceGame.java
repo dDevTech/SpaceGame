@@ -122,8 +122,13 @@ public class SpaceGame extends Game {
     }
     public void onEntityMessage(EntityPacket packet) {
         Entity entity = entities.get(packet.ID);
-        Transferable data = packet.packetData;
-        entity.onPacketReceivedInClient(data);
+        if(entity!=null){
+            Transferable data = packet.packetData;
+            entity.onPacketReceivedInClient(data);
+        }
+
+
+
 
     }
 }

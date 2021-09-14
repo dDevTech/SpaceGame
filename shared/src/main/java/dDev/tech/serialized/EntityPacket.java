@@ -39,7 +39,7 @@ public class EntityPacket implements Transferable {
         } catch (ReflectionException e) {
             e.printStackTrace();
         }
-        Gdx.app.log("ERROR","Error deserializing");
+        Gdx.app.log("ERROR","Error deserializing ClassName: "+className);
         return null;
     }
 

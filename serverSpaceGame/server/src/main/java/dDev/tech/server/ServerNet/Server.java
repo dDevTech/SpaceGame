@@ -9,8 +9,10 @@ import dDev.tech.constants.Constants;
 
 import dDev.tech.entities.Packets;
 import dDev.tech.entities.Player;
+import dDev.tech.serialized.EntityCreate;
 import dDev.tech.serialized.EntityPacket;
 
+import dDev.tech.serialized.PlayerID;
 import dDev.tech.server.ServerUtils.Console;
 import dDev.tech.server.Game.Game;
 import dDev.tech.server.Game.Sender;
@@ -24,11 +26,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
+import java.util.Map;
 
 public class Server extends WebSocketServer{
     public Game game;
     private JsonSerializer serializer;
-    int playersToStart = 1;
+    int playersToStart = 3;
     public Sender sender;
     public ManualSerializer manual ;
     public Server(){
@@ -74,11 +77,20 @@ public class Server extends WebSocketServer{
         return "Error!";
 
     }
+    int x=25;
     @Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
-
-        game.addPlayerToGame(conn,new Player(new Vector2(25,25)));
+        x=x+10;
         System.out.println("New client");
+        Player player = new Player(new Vector2(x,25));
+        int idPlayer  = game.addPlayerToGame(conn,player);
+        conn.send(manual.serialize(new PlayerID(idPlayer)));
+        for(Map.Entry<Integer,WebSocket>entry: game.getPlayers().entrySet()){
+            conn.send(manual.serialize(new EntityCreate(entry.getKey(),player.getClass().getName())));
+        }
+        sendAllExcept(new EntityCreate(player.getID(),player.getClass().getName()),player);
+
+
         if(game.getPlayers().size()>=playersToStart){
             startGame();
         }
@@ -127,9 +139,9 @@ public class Server extends WebSocketServer{
 
         byte[]data=manual.serialize(o);
         System.out.println(o.getClass());
-        for(WebSocket socket:game.getPlayers().values()){
-            if(player != game.getPlayers().get(socket)){
-                socket.send(data);
+        for(Map.Entry<Integer,WebSocket>entry:game.getPlayers().entrySet()){
+            if(player.getID() != entry.getKey()){
+                entry.getValue().send(data);
             }
 
         }

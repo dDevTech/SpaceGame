@@ -113,7 +113,7 @@ public class Game extends Thread{
         entity.onPacketReceivedInServer(data);
 
     }
-    public void addPlayerToGame(WebSocket conn,Player player){
+    public int addPlayerToGame(WebSocket conn,Player player){
         int idEntity = IDGenerator.assignID();
         player.setID(idEntity);
 
@@ -121,9 +121,9 @@ public class Game extends Thread{
         entities.put(idEntity,player);
         players.put(idEntity,conn);
 
-        server.sendData(new EntityCreate(player.getID(),player.getClass().getName()));
         player.createEntityInServer(server.game.entities, server.game.getWorld());
         if(ServerLauncher.USING_GRAPHICS) ServerLauncher.callback.onAddPlayer(player,conn);
+        return idEntity;
     }
     public void addEntityToGame(Entity entity){
         int idEntity = IDGenerator.assignID();

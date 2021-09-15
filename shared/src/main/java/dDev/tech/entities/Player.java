@@ -14,6 +14,7 @@ import com.github.czyzby.websocket.serialization.Transferable;
 import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
 import com.github.czyzby.websocket.serialization.impl.ManualSerializer;
 import dDev.tech.map.SpaceWorld;
+import dDev.tech.serialized.PlayerInput;
 import dDev.tech.serialized.PlayerPhysicData;
 
 import dDev.tech.tools.PhysicFilters;
@@ -71,9 +72,9 @@ public class Player extends Entity{
                 world.camera.position.y = getY();
             }
 
-            //interpolator.updatePos(Gdx.graphics.getDeltaTime());
-            //Vector2 pos = interpolator.getPosition();
-            //setPhysicalPosition(pos.x,pos.y);
+            interpolator.updatePos(Gdx.graphics.getDeltaTime());
+            Vector2 pos = interpolator.getPosition();
+            setPhysicalPosition(pos.x,pos.y);
         }
         shaper.getShaper().setColor(new Color(0,109/255f,209/255f,1f));
         shaper.getShaper().filledPolygon(getX(),getY(),100,size/2,0);
@@ -122,9 +123,15 @@ public class Player extends Entity{
     public void onPacketReceivedInClient(Transferable packet) {
         if(packet instanceof PlayerPhysicData){
             PlayerPhysicData location = (PlayerPhysicData) packet;
-            setPhysicalPosition(location.x, location.y);
+            interpolator.newPoint(location.x, location.y);
+
         }
 
+    }
+
+
+    public Transferable onKeyMovements(boolean[] movements) {
+        return new PlayerInput(movements[0],movements[1],movements[2],movements[3]);
     }
 
     //----------------------------------SERVER-----------------------------------------
@@ -157,7 +164,15 @@ public class Player extends Entity{
 
     @Override
     public void onPacketReceivedInServer(Transferable packet) {
-
+        if(packet instanceof PlayerInput){
+            boolean []wasd = new boolean[4];
+            PlayerInput input = (PlayerInput) packet;
+            wasd[0]=input.W;
+            wasd[1]=input.A;
+            wasd[2]=input.S;
+            wasd[3]=input.D;
+            selectPlayerMovement(wasd);
+        }
     }
 
     @Override
@@ -182,18 +197,18 @@ public class Player extends Entity{
 
     }
 
-    public void selectPlayerMovement(Array<Boolean> movement){
+    public void selectPlayerMovement(boolean []movement){
         int xdir = 0;
         int ydir=0;
-        System.out.println(movement);
-        if(movement.get(0)==true&&movement.get(2)==false){
+
+        if(movement[0]==true&&movement[2]==false){
             ydir=1;
-        }else if(movement.get(0)==false&&movement.get(2)==true){
+        }else if(movement[0]==false&&movement[2]==true){
             ydir=-1;
         }
-        if(movement.get(1)==true&&movement.get(3)==false){
+        if(movement[1]==true&&movement[3]==false){
             xdir=-1;
-        }else if(movement.get(1)==false&&movement.get(3)==true){
+        }else if(movement[1]==false&&movement[3]==true){
             xdir=1;
         }
         updateMovement(xdir,ydir);

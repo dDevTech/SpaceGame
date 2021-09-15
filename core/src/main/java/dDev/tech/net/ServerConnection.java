@@ -38,7 +38,7 @@ public class ServerConnection {
 
     private WebSocket socket = null;
     private JsonSerializer serializer = new JsonSerializer();
-    private ManualSerializer manual;
+    public  ManualSerializer manual;
     public ServerConnection(SpaceGame core){
         manual= new ManualSerializer();
         Packets.register(manual);
@@ -115,6 +115,8 @@ public class ServerConnection {
                         if(entity instanceof Player){
                             if(entity.getID()==idClient){
                                 ((Player)entity).setMainPlayer(true);
+                                core.mainPlayer = ((Player)entity);
+
                             }
                         }
                         entity.onCreateEntityInClient(core.getSpaceWorld());

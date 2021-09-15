@@ -2,10 +2,17 @@ package dDev.tech.inputs;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.github.czyzby.websocket.serialization.Transferable;
+import dDev.tech.entities.Packets;
+import dDev.tech.screens.SpaceGame;
+import dDev.tech.serialized.EntityPacket;
 
-public abstract class InputHandler implements InputProcessor {
+public class InputHandler implements InputProcessor {
+    SpaceGame core;
     private boolean[]movements = new boolean[4];
-    public abstract void onUpdate();
+    public InputHandler(SpaceGame core){
+        this.core = core;
+    }
     @Override
     public boolean keyDown(int keycode) {
 
@@ -13,7 +20,8 @@ public abstract class InputHandler implements InputProcessor {
         if(keycode== Input.Keys.A) movements[1]=true;
         if(keycode== Input.Keys.S) movements[2]=true;
         if(keycode== Input.Keys.D) movements[3]=true;
-        onUpdate();
+        Transferable inputData = core.mainPlayer.onKeyMovements(movements);
+        core.getConnection().getSocket().send(core.getConnection().manual.serialize(inputData));
         return true;
     }
 
@@ -23,7 +31,9 @@ public abstract class InputHandler implements InputProcessor {
         if(keycode== Input.Keys.A) movements[1]=false;
         if(keycode== Input.Keys.S) movements[2]=false;
         if(keycode== Input.Keys.D) movements[3]=false;
-        onUpdate();
+        Transferable inputData = core.mainPlayer.onKeyMovements(movements);
+        core.getConnection().getSocket().send(core.getConnection().manual.serialize(inputData));
+
         return true;
     }
 

@@ -13,19 +13,22 @@ public class GameScreen implements Screen {
     private Map map;
     private SpaceGame spaceGame;
 
-    public PlayerTT player;
+
     private InputHandler inputs;
 
     private float speed=3f;
 
 
     public GameScreen(SpaceGame spaceGame){
-        inputs = new InputHandler() {
+       /* inputs = new InputHandler() {
             @Override
             public void onUpdate() {
                 spaceGame.getConnection().sendJson(inputs.getMovement());
             }
-        };
+        };*?
+
+        */
+        inputs = new InputHandler(spaceGame);
         Gdx.input.setInputProcessor(inputs);
         this.spaceGame = spaceGame;
     }

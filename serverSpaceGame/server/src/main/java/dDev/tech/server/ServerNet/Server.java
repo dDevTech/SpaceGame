@@ -3,16 +3,19 @@ package dDev.tech.server.ServerNet;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
+import com.github.czyzby.websocket.serialization.Transferable;
 import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
 import com.github.czyzby.websocket.serialization.impl.ManualSerializer;
 import dDev.tech.constants.Constants;
 
+import dDev.tech.entities.Entity;
 import dDev.tech.entities.Packets;
 import dDev.tech.entities.Player;
 import dDev.tech.serialized.EntityCreate;
 import dDev.tech.serialized.EntityPacket;
 
 import dDev.tech.serialized.PlayerID;
+import dDev.tech.serialized.PlayerInput;
 import dDev.tech.server.ServerUtils.Console;
 import dDev.tech.server.Game.Game;
 import dDev.tech.server.Game.Sender;
@@ -31,7 +34,7 @@ import java.util.Map;
 public class Server extends WebSocketServer{
     public Game game;
     private JsonSerializer serializer;
-    int playersToStart = 3;
+    int playersToStart = 2;
     public Sender sender;
     public ManualSerializer manual ;
     public Server(){
@@ -110,11 +113,22 @@ public class Server extends WebSocketServer{
     @Override
     public void onMessage(WebSocket conn, ByteBuffer message) {
 
-        Object o = serializer.deserialize(message.array());
+        Object o = manual.deserialize(message.array());
         if(o instanceof EntityPacket){
             EntityPacket entityPacket  = (EntityPacket) o;
             game.onEntityMessage(entityPacket);
 
+        }
+        if(o instanceof PlayerInput){
+            for(Map.Entry<Integer,WebSocket>entry:game.getPlayers().entrySet()){
+                if(entry.getValue()==conn){
+                    Entity entity = game.entities.get(entry.getKey());
+                    if(entity instanceof Player){
+                        ((Player)entity).onPacketReceivedInServer((Transferable) o);
+                    }
+                }
+
+            }
         }
         /*Object o=serializer.deserialize(
                 message.array());

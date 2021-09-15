@@ -27,6 +27,7 @@ public class SpaceGame extends Game {
      Menu menuScreen;
      TextFont fps;
     public Map<Integer, Player> players = new HashMap<>();
+    public Player  mainPlayer;
     public Map<Integer, Entity> entities = new HashMap<>();
     public Stage getMapLayer() {
         return mapLayer;

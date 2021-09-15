@@ -13,6 +13,7 @@ public class Packets {
         serializer.register(new PlayerData());
         serializer.register(new PlayerID());
         serializer.register(new PlayersData());
+        serializer.register(new PlayerInput());
 
         System.out.println("Registered classes serialized");
 

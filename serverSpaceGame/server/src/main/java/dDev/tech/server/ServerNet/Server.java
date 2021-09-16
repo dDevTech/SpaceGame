@@ -34,7 +34,7 @@ import java.util.Map;
 public class Server extends WebSocketServer{
     public Game game;
     private JsonSerializer serializer;
-    int playersToStart = 2;
+    int playersToStart =1;
     public Sender sender;
     public ManualSerializer manual ;
     public Server(){

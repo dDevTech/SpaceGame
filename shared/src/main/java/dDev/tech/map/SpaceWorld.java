@@ -9,6 +9,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import dDev.tech.entities.SpaceCamera;
 import dDev.tech.tools.PhysicStepper;
 
 
@@ -18,10 +19,10 @@ public class SpaceWorld{
     public Box2DDebugRenderer debugRenderer;
     public RayHandler rayHandler;
     public   PointLight p2;
-    public Camera camera;
+    public SpaceCamera camera;
     public float deltaTime=0;
     private PhysicStepper stepper;
-    public SpaceWorld(Camera camera){
+    public SpaceWorld(SpaceCamera camera){
         this();
         this.camera = camera;
 

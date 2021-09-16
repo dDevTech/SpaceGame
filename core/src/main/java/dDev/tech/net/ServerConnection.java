@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.github.czyzby.websocket.WebSocket;
 import com.github.czyzby.websocket.WebSocketListener;
 import com.github.czyzby.websocket.WebSockets;
+import com.github.czyzby.websocket.serialization.Transferable;
 import com.github.czyzby.websocket.serialization.impl.JsonSerializer;
 import com.github.czyzby.websocket.serialization.impl.ManualSerializer;
 import dDev.tech.constants.Constants;
@@ -80,9 +81,6 @@ public class ServerConnection {
                         }
                     });
                 }
-
-
-
 
                 return false;
             }
@@ -206,9 +204,21 @@ public class ServerConnection {
 
     }
 
-    public void sendJson(boolean[] movement) {
+    /**
+     * Send to server a packet to specified id of entity
+     * @param entity
+     * @param packet
+     */
+    public void sendEntityToServer(Entity entity,Transferable packet){
+        socket.send(Packets.buildPackage(entity,packet));
+    }
 
-        socket.send(serializer.serialize(movement));
-
+    /**
+     * Packet will be only received by server player (the player linked by this client) and in the server player method onReceivedOnServer will be called
+     * @param packet
+     * @return
+     */
+    public void sendPacketToServer(Transferable packet){
+        socket.send(manual.serialize(packet));
     }
 }

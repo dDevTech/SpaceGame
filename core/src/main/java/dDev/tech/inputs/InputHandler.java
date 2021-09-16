@@ -15,23 +15,14 @@ public class InputHandler implements InputProcessor {
     }
     @Override
     public boolean keyDown(int keycode) {
-
-        if(keycode== Input.Keys.W) movements[0]=true;
-        if(keycode== Input.Keys.A) movements[1]=true;
-        if(keycode== Input.Keys.S) movements[2]=true;
-        if(keycode== Input.Keys.D) movements[3]=true;
-        Transferable inputData = core.mainPlayer.onKeyMovements(movements);
+        Transferable inputData = core.mainPlayer.onKeyDown(keycode);
         core.getConnection().getSocket().send(core.getConnection().manual.serialize(inputData));
         return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        if(keycode== Input.Keys.W) movements[0]=false;
-        if(keycode== Input.Keys.A) movements[1]=false;
-        if(keycode== Input.Keys.S) movements[2]=false;
-        if(keycode== Input.Keys.D) movements[3]=false;
-        Transferable inputData = core.mainPlayer.onKeyMovements(movements);
+        Transferable inputData = core.mainPlayer.onKeyUp(keycode);
         core.getConnection().getSocket().send(core.getConnection().manual.serialize(inputData));
 
         return true;

@@ -2,6 +2,7 @@ package dDev.tech.entities;
 
 import box2dLight.PointLight;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -19,6 +20,7 @@ import dDev.tech.serialized.PlayerPhysicData;
 
 import dDev.tech.tools.PhysicFilters;
 import dDev.tech.tools.PosInterpolator;
+import dDev.tech.tools.PosInterpolatorV2;
 import dDev.tech.tools.Shaper;
 
 
@@ -64,17 +66,22 @@ public class Player extends Entity{
             setX(body.getPosition().x);
             setY(body.getPosition().y);
         }else{
-
-            if(mainPlayer){
-                body.setAwake(true);
-                body.setActive(true);
-                world.camera.position.x = getX();
-                world.camera.position.y = getY();
-            }
-
             interpolator.updatePos(Gdx.graphics.getDeltaTime());
             Vector2 pos = interpolator.getPosition();
             setPhysicalPosition(pos.x,pos.y);
+
+            if(mainPlayer){
+
+                world.camera.update(Gdx.graphics.getDeltaTime());
+                //body.setAwake(true);
+                //body.setActive(true);
+                world.camera.position.x = getX();
+                world.camera.position.y = getY();
+
+            }
+
+
+
         }
         shaper.getShaper().setColor(new Color(0,109/255f,209/255f,1f));
         shaper.getShaper().filledPolygon(getX(),getY(),100,size/2,0);
@@ -91,7 +98,7 @@ public class Player extends Entity{
     //---------------------------------CLIENT---------------------------------------
 
     private boolean mainPlayer=false;
-    public PosInterpolator interpolator;
+    public PosInterpolatorV2 interpolator;
     public int id = 0;
 
     public Player(Vector2 position){
@@ -101,7 +108,7 @@ public class Player extends Entity{
     @Override
     public void onCreateEntityInClient(SpaceWorld world) {
         this.world = world;
-        interpolator = new PosInterpolator();
+        interpolator = new PosInterpolatorV2();
         createBody(world);
         if(isMainPlayer()){
             PointLight light = new PointLight(world.rayHandler,256);
@@ -124,16 +131,32 @@ public class Player extends Entity{
         if(packet instanceof PlayerPhysicData){
             PlayerPhysicData location = (PlayerPhysicData) packet;
             interpolator.newPoint(location.x, location.y);
+            if(isMainPlayer()){
+                world.camera.move(location.x,location.y);
+            }
 
         }
 
     }
 
+    boolean movements[] = new boolean[4];
+    public Transferable onKeyDown(int keycode) {
 
-    public Transferable onKeyMovements(boolean[] movements) {
+        if(keycode== Input.Keys.W) movements[0]=true;
+        if(keycode== Input.Keys.A) movements[1]=true;
+        if(keycode== Input.Keys.S) movements[2]=true;
+        if(keycode== Input.Keys.D) movements[3]=true;
         return new PlayerInput(movements[0],movements[1],movements[2],movements[3]);
     }
 
+    public Transferable onKeyUp(int keycode) {
+
+        if(keycode== Input.Keys.W) movements[0]=false;
+        if(keycode== Input.Keys.A) movements[1]=false;
+        if(keycode== Input.Keys.S) movements[2]=false;
+        if(keycode== Input.Keys.D) movements[3]=false;
+        return new PlayerInput(movements[0],movements[1],movements[2],movements[3]);
+    }
     //----------------------------------SERVER-----------------------------------------
 
     private SpaceWorld world;
@@ -253,5 +276,6 @@ public class Player extends Entity{
 
 
     }
+
 
 }

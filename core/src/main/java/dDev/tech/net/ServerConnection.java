@@ -126,6 +126,7 @@ public class ServerConnection {
                 if(o instanceof EntityPacket){
                     //Gdx.app.log("ENTITY","New object received");
                     EntityPacket entityPacket  = (EntityPacket) o;
+
                     Gdx.app.postRunnable(new Runnable() {
                         @Override
                         public void run() {
@@ -135,11 +136,7 @@ public class ServerConnection {
 
                 }
                // System.out.println(o.getClass());
-                if(o instanceof Locations){
 
-                    core.updatePositions((Locations)o);
-
-                }
                 /*if(o instanceof PlayerData){
                     PlayerData data = (PlayerData) o;
 

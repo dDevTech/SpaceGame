@@ -75,14 +75,20 @@ public class Player extends Entity{
                 world.camera.update(Gdx.graphics.getDeltaTime());
                 //body.setAwake(true);
                 //body.setActive(true);
-                world.camera.position.x = getX();
-                world.camera.position.y = getY();
+               // world.camera.position.x = getX();
+               // world.camera.position.y = getY();
 
+            }
+            if(interpolator.getPrevKeyPoint()!=null){
+                shaper.getShaper().setColor(Color.OLIVE);
+                shaper.getShaper().filledCircle(interpolator.getPrevKeyPoint().getPosition(),2);
+                shaper.getShaper().filledCircle(interpolator.getNextKeyPoint().getPosition(),2);
             }
 
 
-
         }
+
+
         shaper.getShaper().setColor(new Color(0,109/255f,209/255f,1f));
         shaper.getShaper().filledPolygon(getX(),getY(),100,size/2,0);
 
@@ -128,9 +134,10 @@ public class Player extends Entity{
 
     @Override
     public void onPacketReceivedInClient(Transferable packet) {
+
         if(packet instanceof PlayerPhysicData){
             PlayerPhysicData location = (PlayerPhysicData) packet;
-            interpolator.newPoint(location.x, location.y);
+            interpolator.newPoint(location.x, location.y,getID());
             if(isMainPlayer()){
                 world.camera.move(location.x,location.y);
             }

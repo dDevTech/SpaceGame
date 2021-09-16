@@ -113,14 +113,7 @@ public class SpaceGame extends Game {
         font.dispose();
     }
 
-    public void updatePositions(Locations locs) {
 
-        for(PlayerPhysicData loc:locs.getLocations()){
-            players.get(loc.id).interpolator.newPoint(loc.x,loc.y);
-        }
-
-
-    }
     public void onEntityMessage(EntityPacket packet) {
         Entity entity = entities.get(packet.ID);
         if(entity!=null){

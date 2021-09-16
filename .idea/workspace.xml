@@ -12,15 +12,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="&#10;Fix  for gradle subproject serverSpaceGame">
+    <list default="true" id="8ebc05e0-6f77-44ca-9bc4-473834a2d823" name="Default Changelist" comment="Not working yet. PosInterpolatorV2 reconstructing past">
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/KeyPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dDev/tech/screens/SpaceGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/ServerNet/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/constants/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/EntityPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/EntityPacket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/serialized/TransferableV2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PosInterpolatorV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/dDev/tech/tools/PosInterpolatorV2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,8 +87,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -146,7 +145,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.117145896" />
     <property name="project.structure.side.proportion" value="0.31761009" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -163,7 +162,7 @@
       <recent name="D:\Programacion\GameLibGDX\SpaceGame" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Multirun.2ClientsServer">
     <configuration name="android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="SpaceGame.android" />
       <option name="DEPLOY" value="true" />
@@ -462,6 +461,13 @@
       <workItem from="1631472076348" duration="1211000" />
       <workItem from="1631553449974" duration="3210000" />
       <workItem from="1631637445493" duration="27000" />
+      <workItem from="1631718364450" duration="2718000" />
+      <workItem from="1631721446545" duration="4854000" />
+      <workItem from="1631775131897" duration="142000" />
+      <workItem from="1631775901201" duration="127000" />
+      <workItem from="1631797960200" duration="5700000" />
+      <workItem from="1631810305674" duration="1483000" />
+      <workItem from="1631811853996" duration="23000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1623702726044</created>
@@ -575,7 +581,35 @@
       <option name="project" value="LOCAL" />
       <updated>1630925651274</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update clients workspace.xml to run multiple client instances">
+      <created>1631641710917</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1631641710917</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Running multiple clients and synchronize them with automatic instantiation">
+      <created>1631641799366</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1631641799366</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Working movement with new system of creating shared classes for client and server. Needs cleanup and more features">
+      <created>1631721079857</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1631721079857</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Not working yet. PosInterpolatorV2 reconstructing past">
+      <created>1631775964788</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1631775964788</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +675,11 @@
     <MESSAGE value="Working player system. Interacting with lights. Client interpolation&#10;Multiple Clients" />
     <MESSAGE value="&#10;Fix  for gradle subproject serverSpaceGame" />
     <MESSAGE value="New client server system for entities. Now the are in one only file shared with client and server to customize everything and send messages easily from server to client and client server" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;Fix  for gradle subproject serverSpaceGame" />
+    <MESSAGE value="Update clients workspace.xml to run multiple client instances" />
+    <MESSAGE value="Running multiple clients and synchronize them with automatic instantiation" />
+    <MESSAGE value="Working movement with new system of creating shared classes for client and server. Needs cleanup and more features" />
+    <MESSAGE value="Not working yet. PosInterpolatorV2 reconstructing past" />
+    <option name="LAST_COMMIT_MESSAGE" value="Not working yet. PosInterpolatorV2 reconstructing past" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -659,11 +697,6 @@
           <url>file://$PROJECT_DIR$/serverSpaceGame/server/src/main/java/dDev/tech/server/Game/Sender.java</url>
           <line>37</line>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/main/java/dDev/tech/net/ServerConnection.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
